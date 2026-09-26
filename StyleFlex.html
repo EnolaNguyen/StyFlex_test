@@ -1,0 +1,3729 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YUSEA _ STYLE FLEX INVENTORY - Understand Your Natural Communication Style</title>
+  <meta name="description" content="Style Flex Inventory - Interactive Behavioral & Communication Style Assessment tool based on the 4 quadrants: Analytics, Amiables, Drivers, and Expressives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & THEME SYSTEM (EDITORIAL & MODERN DATA-VISUALIZATION)
+       ========================================================================== */
+    :root {
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Dark luxury editorial canvas */
+      --bg-body: #090d16;
+      --bg-card: #111726;
+      --bg-card-hover: #172138;
+      --bg-card-subtle: rgba(17, 23, 38, 0.7);
+      --bg-surface: #182238;
+      --bg-pill: rgba(255, 255, 255, 0.05);
+
+      /* Borders */
+      --border-subtle: #1e2a44;
+      --border-light: #2c3e66;
+      --border-focus: #6366f1;
+
+      /* Typography */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --text-bright: #ffffff;
+
+      /* Brand Archetype Colors (Exact 4 Quadrants from Style Flex) */
+      --color-analytic: #0ea5e9;    /* Top-Left: Sky Blue */
+      --color-analytic-bg: rgba(14, 165, 233, 0.12);
+      --color-driver: #ef4444;      /* Top-Right: Coral Red */
+      --color-driver-bg: rgba(239, 68, 68, 0.12);
+      --color-amiable: #10b981;     /* Bottom-Left: Emerald */
+      --color-amiable-bg: rgba(16, 185, 129, 0.12);
+      --color-expressive: #f59e0b;  /* Bottom-Right: Amber Orange */
+      --color-expressive-bg: rgba(245, 158, 11, 0.12);
+
+      --color-primary: #6366f1;
+      --color-primary-hover: #4f46e5;
+      --color-primary-light: rgba(99, 102, 241, 0.15);
+
+      /* Shadows & Radii */
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --shadow-glow: 0 0 35px rgba(99, 102, 241, 0.25);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 88% 25%, rgba(14, 165, 233, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+
+    /* ==========================================================================
+       2. TYPOGRAPHY & COMMON ATOMS
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-primary {
+      background: var(--color-primary-light);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+
+    .badge-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #4f46e5, #4338ca);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--bg-card-hover);
+      border-color: #475569;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+    .btn-outline:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: #64748b;
+    }
+
+    .btn-outline-danger {
+      background: transparent;
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+    .btn-outline-danger:hover:not(:disabled) {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: #ef4444;
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR & LANGUAGE SWITCHER
+       ========================================================================== */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #0ea5e9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    }
+
+    .nav-brand-text {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand-text span {
+      color: #818cf8;
+      font-weight: 500;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Language Switcher Button */
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      position: relative;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.04em;
+    }
+
+    .lang-btn.active {
+      background: #6366f1;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION (EDITORIAL LANDING)
+       ========================================================================== */
+    .hero-section {
+      text-align: center;
+      padding: 40px 0 20px;
+      position: relative;
+    }
+
+    .hero-tag-row {
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 75%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    /* 4 Archetypes Visual Grid */
+    .archetypes-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .archetype-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .archetype-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-light);
+      box-shadow: var(--shadow-md);
+    }
+
+    .archetype-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .archetype-card.analytic::before { background: var(--color-analytic); }
+    .archetype-card.driver::before { background: var(--color-driver); }
+    .archetype-card.amiable::before { background: var(--color-amiable); }
+    .archetype-card.expressive::before { background: var(--color-expressive); }
+
+    .archetype-card .arch-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .archetype-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .archetype-card.analytic h3 { color: var(--color-analytic); }
+    .archetype-card.driver h3 { color: var(--color-driver); }
+    .archetype-card.amiable h3 { color: var(--color-amiable); }
+    .archetype-card.expressive h3 { color: var(--color-expressive); }
+
+    .archetype-card .arch-subtitle {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .archetype-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       5. HOW IT WORKS SECTION (3 STEPS)
+       ========================================================================== */
+    .how-it-works-section {
+      margin: 60px 0 40px;
+      padding: 40px 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      position: relative;
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-header-center h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .step-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .step-box:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #818cf8;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .step-box h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--text-bright);
+    }
+
+    .step-box p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Purpose & Directions Collapsible / Info Box */
+    .directions-callout {
+      margin-top: 32px;
+      background: rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.22);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .directions-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .directions-text h4 {
+      font-size: 0.95rem;
+      color: #c7d2fe;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .directions-text p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       6. ASSESSMENT CARD INTERFACE (QUESTION 01 / 18, PREV / NEXT / FINISH)
+       ========================================================================== */
+    #assessment-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .assessment-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* Top Progress Bar & Indicators */
+    .progress-bar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px 26px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .q-step-counter {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+
+    .q-step-counter span {
+      color: var(--text-dim);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .progress-percent-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #818cf8;
+      background: var(--color-primary-light);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 5.5%;
+      background: linear-gradient(90deg, #6366f1, #38bdf8);
+      border-radius: var(--radius-full);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mini Navigator Dots */
+    .jump-dots-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .jump-dot {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jump-dot:hover {
+      border-color: #475569;
+      color: var(--text-bright);
+    }
+
+    .jump-dot.current {
+      border-color: #6366f1;
+      color: #ffffff;
+      background: rgba(99, 102, 241, 0.25);
+      font-weight: 700;
+    }
+
+    .jump-dot.answered {
+      background: #1e293b;
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .jump-dot.current.answered {
+      border-color: #6366f1;
+      background: #4f46e5;
+      color: #ffffff;
+    }
+
+    /* Main Question Card */
+    .question-viewport {
+      min-height: 400px;
+      position: relative;
+    }
+
+    .question-card-active {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 38px 36px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      animation: questionFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes questionFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .q-header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .q-axis-indicator {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .q-instruction-prompt {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    /* 2 Options Cards */
+    .options-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .option-item {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: var(--transition);
+      position: relative;
+      user-select: none;
+    }
+
+    .option-item:hover {
+      border-color: #3b82f6;
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .option-item.selected {
+      border-color: #6366f1;
+      background: rgba(99, 102, 241, 0.12);
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.2);
+    }
+
+    .option-radio-ring {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .option-item.selected .option-radio-ring {
+      border-color: #6366f1;
+      background: #6366f1;
+    }
+
+    .option-radio-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      opacity: 0;
+      transform: scale(0.4);
+      transition: var(--transition);
+    }
+
+    .option-item.selected .option-radio-dot {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .option-key-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .option-item.selected .option-key-badge {
+      background: rgba(99, 102, 241, 0.25);
+      color: #c7d2fe;
+    }
+
+    .option-text-group {
+      flex: 1;
+    }
+
+    .option-title {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .option-subtext {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .option-item.selected .option-title {
+      color: #ffffff;
+    }
+
+    /* Navigation Bar (Prev / Next / Finish) */
+    .nav-actions-bar {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .shortcut-hint {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kbd {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      font-family: inherit;
+    }
+
+    /* Validation Toast */
+    .selection-alert {
+      display: none;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      margin-top: 16px;
+      text-align: center;
+      animation: alertShake 0.35s ease;
+    }
+
+    @keyframes alertShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* ==========================================================================
+       7. RESULTS SECTION & STYLE GRAM VISUALIZATION
+       ========================================================================== */
+    #results-section {
+      display: none;
+      animation: questionFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hero Banner of Result */
+    .results-hero-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: 44px 36px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .results-hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+    }
+
+    .results-hero-card.style-analytic::before { background: var(--color-analytic); }
+    .results-hero-card.style-driver::before { background: var(--color-driver); }
+    .results-hero-card.style-amiable::before { background: var(--color-amiable); }
+    .results-hero-card.style-expressive::before { background: var(--color-expressive); }
+
+    .result-badge-wrap {
+      margin-bottom: 16px;
+    }
+
+    .result-style-pill {
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 8px 24px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid;
+      letter-spacing: 0.05em;
+    }
+
+    .result-headline {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .result-motto {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* 6 Typical Behaviors Row */
+    .typical-traits-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .trait-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      letter-spacing: 0.02em;
+    }
+
+    /* Score Breakdown Grid */
+    .score-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) repeat(2, 1.25fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-card.net-highlight {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-surface));
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .metric-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-bright);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .metric-sub {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    /* Style Gram Visualization Card */
+    .style-gram-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .gram-card-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .gram-card-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .gram-svg-container {
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .gram-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ==========================================================================
+       8. TABBED CONTENT: PROFILE, NEEDS, FLEXING, HINTS
+       ========================================================================== */
+    .analysis-tabs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .tabs-header-nav {
+      display: flex;
+      overflow-x: auto;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 6px 8px 0;
+    }
+
+    .tab-nav-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 14px 20px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .tab-nav-btn:hover {
+      color: var(--text-bright);
+    }
+
+    .tab-nav-btn.active {
+      color: #ffffff;
+      border-bottom-color: #6366f1;
+      background: rgba(99, 102, 241, 0.08);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+
+    .tab-content-area {
+      padding: 36px 32px;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: questionFadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Detailed Lists & Grids inside tabs */
+    .detail-2col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .content-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .content-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: -1px;
+      font-size: 1.2rem;
+      color: #6366f1;
+    }
+
+    .scrollable-list {
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .scrollable-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scrollable-list::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 4px;
+    }
+
+    /* Section 10: Flexing From Your Style (Page 10 Highlight) */
+    .self-flex-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(14, 165, 233, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 24px;
+    }
+
+    .self-flex-badge {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .self-flex-title {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .self-flex-desc {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+
+    /* Section 8: Interactive Flex to Other Styles */
+    .flex-selector-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .flex-style-btn {
+      flex: 1;
+      min-width: 140px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .flex-style-btn:hover {
+      border-color: var(--border-light);
+      color: var(--text-bright);
+    }
+
+    .flex-style-btn.active.to-analytic {
+      background: var(--color-analytic-bg);
+      border-color: var(--color-analytic);
+      color: #38bdf8;
+    }
+    .flex-style-btn.active.to-driver {
+      background: var(--color-driver-bg);
+      border-color: var(--color-driver);
+      color: #f87171;
+    }
+    .flex-style-btn.active.to-amiable {
+      background: var(--color-amiable-bg);
+      border-color: var(--color-amiable);
+      color: #34d399;
+    }
+    .flex-style-btn.active.to-expressive {
+      background: var(--color-expressive-bg);
+      border-color: var(--color-expressive);
+      color: #fbbf24;
+    }
+
+    /* Hints for Style Flexing 2-axis layout (Page 9) */
+    .hints-axis-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .hints-axis-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .hints-axis-title {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-bright);
+    }
+
+    .hints-direction-block {
+      margin-bottom: 20px;
+    }
+
+    .hints-direction-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .hints-dir-head {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hints-dir-sub {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* All 4 Styles Overview Cards */
+    .all-styles-matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .matrix-arch-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+    }
+
+    .matrix-arch-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .matrix-arch-box.analytic::before { background: var(--color-analytic); }
+    .matrix-arch-box.driver::before { background: var(--color-driver); }
+    .matrix-arch-box.amiable::before { background: var(--color-amiable); }
+    .matrix-arch-box.expressive::before { background: var(--color-expressive); }
+
+    .matrix-arch-box h4 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    /* Bottom Actions Row */
+    .results-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      border: 1px solid #6366f1;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      display: none;
+      animation: questionFadeIn 0.3s ease;
+    }
+
+    /* ==========================================================================
+       9. RESPONSIVE DESIGN (MOBILE & TABLET OPTIMIZATIONS)
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .archetypes-preview-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .score-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .detail-2col-grid,
+      .hints-axis-matrix,
+      .all-styles-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gram-legend {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 16px 14px 60px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .question-card-active {
+        padding: 24px 18px;
+      }
+
+      .option-item {
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .option-title {
+        font-size: 1rem;
+      }
+
+      .results-hero-card {
+        padding: 32px 20px;
+      }
+
+      .tab-content-area {
+        padding: 24px 16px;
+      }
+
+      .score-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .top-nav, .results-bottom-bar, .flex-selector-bar, .tabs-header-nav {
+        display: none !important;
+      }
+      .tab-pane {
+        display: block !important;
+        margin-bottom: 24px;
+      }
+      .results-hero-card, .metric-card, .style-gram-card, .content-box {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- ====================================================================
+         TOP NAVIGATION & BILINGUAL TOGGLE
+         ==================================================================== -->
+    <header class="top-nav">
+      <a href="#" class="nav-brand" onclick="goToHome(); return false;">
+        <div class="nav-logo-icon">Y</div>
+        <div class="nav-brand-text">YUSEA <span>_ STYLE FLEX INVENTORY</span></div>
+      </a>
+
+      <div class="nav-controls">
+        <div class="lang-switcher" role="group" aria-label="Language selection">
+          <button id="lang-btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
+          <button id="lang-btn-vi" class="lang-btn active" onclick="setLanguage('vi')">VI</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         SECTION 1: LANDING HERO (EDITORIAL & ELEGANT)
+         ==================================================================== -->
+    <main id="home-view">
+      <section class="hero-section">
+        <div class="hero-tag-row">
+          <span class="badge badge-primary" id="t-hero-badge">YUSEA • BEHAVIORAL INVENTORY</span>
+        </div>
+
+        <h1 class="hero-title" id="t-hero-title">Understand Your Natural Communication Style</h1>
+
+        <p class="hero-desc" id="t-hero-desc">
+          To help you become more aware of your own and other people’s natural behavior for more effective relationships.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="startAssessment()" id="t-btn-start">
+            Start Assessment &rarr;
+          </button>
+          <button class="btn btn-secondary" onclick="scrollToHowItWorks()" id="t-btn-how">
+            How It Works
+          </button>
+        </div>
+
+        <!-- 4 Archetypes Visual Grid -->
+        <div class="archetypes-preview-grid">
+          <!-- Analytic -->
+          <div class="archetype-card analytic">
+            <div class="arch-icon">🔬</div>
+            <h3 id="t-card-ana-name">ANALYTICS</h3>
+            <div class="arch-subtitle" id="t-card-ana-sub">Up • Left (Task & Ask)</div>
+            <p id="t-card-ana-desc">Logical, thorough, serious, systematic, careful, and orderly. Emphasizes quality and facts.</p>
+          </div>
+
+          <!-- Driver -->
+          <div class="archetype-card driver">
+            <div class="arch-icon">⚡</div>
+            <h3 id="t-card-drv-name">DRIVERS</h3>
+            <div class="arch-subtitle" id="t-card-drv-sub">Up • Right (Task & Tell)</div>
+            <p id="t-card-drv-desc">Independent, direct, decisive, pragmatic, efficient, and determined. Moves quickly and achieves results.</p>
+          </div>
+
+          <!-- Amiable -->
+          <div class="archetype-card amiable">
+            <div class="arch-icon">🤝</div>
+            <h3 id="t-card-ami-name">AMIABLES</h3>
+            <div class="arch-subtitle" id="t-card-ami-sub">Down • Left (People & Ask)</div>
+            <p id="t-card-ami-desc">Supportive, cooperative, diplomatic, loyal, patient, and agreeable. Builds deep interpersonal trust.</p>
+          </div>
+
+          <!-- Expressive -->
+          <div class="archetype-card expressive">
+            <div class="arch-icon">🌟</div>
+            <h3 id="t-card-exp-name">EXPRESSIVES</h3>
+            <div class="arch-subtitle" id="t-card-exp-sub">Down • Right (People & Tell)</div>
+            <p id="t-card-exp-desc">Out-going, enthusiastic, persuasive, fun-loving, spontaneous, and free-flowing. Inspires and leads.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 2: HOW IT WORKS (3 SIMPLE STEPS & DIRECTIONS)
+           ==================================================================== -->
+      <section id="how-it-works-section" class="how-it-works-section">
+        <div class="section-header-center">
+          <span class="badge badge-outline" id="t-how-badge">ASSESSMENT PROCESS</span>
+          <h2 id="t-how-title" style="margin-top: 10px;">How It Works</h2>
+          <p id="t-how-sub">Complete the self-reflection in 3 straightforward steps</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-box">
+            <span class="step-number" id="t-step1-num">STEP 01</span>
+            <h3 id="t-step1-title">Answer 18 Questions</h3>
+            <p id="t-step1-desc">
+              Choose the statement in each pair that most accurately describes how other people experience your natural behavior.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-number" id="t-step2-num">STEP 02</span>
+            <h3 id="t-step2-title">Get Your Style</h3>
+            <p id="t-step2-desc">
+              The system computes your Down/Up and Left/Right totals to calculate your Net Vertical and Net Horizontal scores on the Style Gram.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-number" id="t-step3-num">STEP 03</span>
+            <h3 id="t-step3-title">Learn to Flex</h3>
+            <p id="t-step3-desc">
+              Discover your behavioral archetype, likes & needs, and practical guidance on how to adjust (flex) when interacting with other styles.
+            </p>
+          </div>
+        </div>
+
+        <!-- PDF Directions Callout -->
+        <div class="directions-callout">
+          <div class="directions-icon">📋</div>
+          <div class="directions-text">
+            <h4 id="t-dir-heading">DIRECTIONS FROM STYLE FLEX INVENTORY</h4>
+            <p id="t-dir-body">
+              Below are 18 pairs of statements. Mark the one in each pair you think most accurately describes how other people experience you. There are no right or wrong answers. If you think neither answer is accurate, choose the one that most closely describes how you think other people experience you. Mark only 1 statement in each pair.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================================================================
+         SECTION 3: ASSESSMENT PAGE (CARD-BY-CARD FLOW, Q01/18, PREV/NEXT)
+         ==================================================================== -->
+    <section id="assessment-section">
+      <div class="assessment-container">
+        <!-- Progress Bar & Step Tracker -->
+        <div class="progress-bar-card">
+          <div class="progress-meta-row">
+            <div class="q-step-counter">
+              <span id="t-q-label">Question</span> <strong id="current-q-index-text">01</strong> <span>/ 18</span>
+            </div>
+            <div class="progress-percent-badge" id="progress-percent-badge">0% Completed</div>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill-bar"></div>
+          </div>
+
+          <!-- Quick Jump Dots (1-18) -->
+          <div class="jump-dots-row" id="jump-dots-track">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Interactive Question Card Viewport -->
+        <div class="question-viewport">
+          <div class="question-card-active" id="active-question-card">
+            <div class="q-header-meta">
+              <span class="q-axis-indicator" id="q-axis-label">
+                <span id="q-axis-dot">●</span> <span id="q-axis-name">Responsiveness Axis (Down vs Up)</span>
+              </span>
+              <span class="badge badge-outline" id="q-indicator-pill">Step 1 of 18</span>
+            </div>
+
+            <p class="q-instruction-prompt" id="t-q-prompt">
+              Which statement in this pair most accurately describes how other people experience you?
+            </p>
+
+            <!-- 2 Options Stack -->
+            <div class="options-stack">
+              <!-- Option A -->
+              <div class="option-item" id="option-a-card" onclick="handleSelectOption('optionA')">
+                <div class="option-radio-ring">
+                  <div class="option-radio-dot"></div>
+                </div>
+                <div class="option-key-badge">A</div>
+                <div class="option-text-group">
+                  <div class="option-title" id="opt-a-text">Option A Title</div>
+                  <div class="option-subtext" id="opt-a-sub">English translation</div>
+                </div>
+              </div>
+
+              <!-- Option B -->
+              <div class="option-item" id="option-b-card" onclick="handleSelectOption('optionB')">
+                <div class="option-radio-ring">
+                  <div class="option-radio-dot"></div>
+                </div>
+                <div class="option-key-badge">B</div>
+                <div class="option-text-group">
+                  <div class="option-title" id="opt-b-text">Option B Title</div>
+                  <div class="option-subtext" id="opt-b-sub">English translation</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selection Alert (if trying to advance without answer) -->
+            <div class="selection-alert" id="selection-alert-msg">
+              ⚠️ Please choose one of the two statements to proceed.
+            </div>
+
+            <!-- Bottom Navigation Bar -->
+            <div class="nav-actions-bar">
+              <button class="btn btn-outline" id="btn-prev-question" onclick="goToPreviousQuestion()">
+                &larr; <span id="t-btn-prev">Previous</span>
+              </button>
+
+              <div class="shortcut-hint">
+                <span id="t-hint-keys">Press</span> <span class="kbd">1</span> / <span class="kbd">2</span> <span id="t-hint-or">or</span> <span class="kbd">&rarr;</span>
+              </div>
+
+              <button class="btn btn-primary" id="btn-next-question" onclick="goToNextQuestion()">
+                <span id="t-btn-next">Next</span> &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: RESULTS VIEW (STYLE GRAM & COMPREHENSIVE TABS)
+         ==================================================================== -->
+    <section id="results-section">
+      <!-- Main Result Banner Hero -->
+      <div class="results-hero-card" id="result-hero-banner">
+        <div class="result-badge-wrap">
+          <span class="result-style-pill" id="result-style-badge">
+            <span id="result-style-icon">🎯</span>
+            <span id="result-style-name">DRIVER</span>
+          </span>
+        </div>
+
+        <h2 class="result-headline" id="result-headline-text">Your Style: DRIVER</h2>
+        <p class="result-motto" id="result-motto-text">"Decisive, practical, efficient, and determined to achieve results."</p>
+
+        <!-- 6 Most Typical Behaviors (verbatim from PDF) -->
+        <div class="typical-traits-list" id="result-typical-traits-row">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Score Breakdown Metrics Grid -->
+      <div class="score-metrics-grid">
+        <div class="metric-card">
+          <div class="metric-name" id="t-lbl-down">Down</div>
+          <div class="metric-value" id="val-score-down">0</div>
+          <div class="metric-sub" id="t-sub-down">Responsive / People</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-name" id="t-lbl-up">Up</div>
+          <div class="metric-value" id="val-score-up">0</div>
+          <div class="metric-sub" id="t-sub-up">Controlled / Task</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-name" id="t-lbl-left">Left</div>
+          <div class="metric-value" id="val-score-left">0</div>
+          <div class="metric-sub" id="t-sub-left">Ask-oriented / Slower</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-name" id="t-lbl-right">Right</div>
+          <div class="metric-value" id="val-score-right">0</div>
+          <div class="metric-sub" id="t-sub-right">Tell-oriented / Faster</div>
+        </div>
+
+        <div class="metric-card net-highlight">
+          <div class="metric-name" id="t-lbl-netv">Net Vertical</div>
+          <div class="metric-value" id="val-score-netv">+0</div>
+          <div class="metric-sub" id="val-netv-dir">Responsiveness Axis</div>
+        </div>
+
+        <div class="metric-card net-highlight">
+          <div class="metric-name" id="t-lbl-neth">Net Horizontal</div>
+          <div class="metric-value" id="val-score-neth">+0</div>
+          <div class="metric-sub" id="val-neth-dir">Assertiveness Axis</div>
+        </div>
+      </div>
+
+      <!-- STYLE GRAM INTERACTIVE VISUALIZATION -->
+      <div class="style-gram-card">
+        <div class="gram-card-header">
+          <h3 id="t-gram-title">The Style Gram</h3>
+          <p id="t-gram-sub">
+            Your exact behavioral position based on Assertiveness (horizontal) and Responsiveness (vertical).
+          </p>
+        </div>
+
+        <div class="gram-svg-container">
+          <svg id="style-gram-svg" class="chart-svg" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="gram-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- 4 Quadrants -->
+            <!-- Top-Left: ANALYTIC -->
+            <rect id="quad-analytic" x="40" y="40" width="230" height="230" fill="rgba(14, 165, 233, 0.08)" stroke="#1e2a44" stroke-width="1.5" rx="8" />
+            <!-- Top-Right: DRIVER -->
+            <rect id="quad-driver" x="270" y="40" width="230" height="230" fill="rgba(239, 68, 68, 0.08)" stroke="#1e2a44" stroke-width="1.5" rx="8" />
+            <!-- Bottom-Left: AMIABLE -->
+            <rect id="quad-amiable" x="40" y="270" width="230" height="230" fill="rgba(16, 185, 129, 0.08)" stroke="#1e2a44" stroke-width="1.5" rx="8" />
+            <!-- Bottom-Right: EXPRESSIVE -->
+            <rect id="quad-expressive" x="270" y="270" width="230" height="230" fill="rgba(245, 158, 11, 0.08)" stroke="#1e2a44" stroke-width="1.5" rx="8" />
+
+            <!-- Quadrant Titles -->
+            <text x="155" y="80" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700" letter-spacing="1">ANALYTIC</text>
+            <text x="155" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">Up + Left</text>
+
+            <text x="385" y="80" text-anchor="middle" fill="#f87171" font-size="14" font-weight="700" letter-spacing="1">DRIVER</text>
+            <text x="385" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">Up + Right</text>
+
+            <text x="155" y="460" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700" letter-spacing="1">AMIABLE</text>
+            <text x="155" y="480" text-anchor="middle" fill="#94a3b8" font-size="11">Down + Left</text>
+
+            <text x="385" y="460" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700" letter-spacing="1">EXPRESSIVE</text>
+            <text x="385" y="480" text-anchor="middle" fill="#94a3b8" font-size="11">Down + Right</text>
+
+            <!-- Coordinate Axes -->
+            <line x1="40" y1="270" x2="500" y2="270" stroke="#475569" stroke-width="2" />
+            <line x1="270" y1="40" x2="270" y2="500" stroke="#475569" stroke-width="2" />
+
+            <!-- Axis Ticks & Scale Numbers (1 to 9) -->
+            <g stroke="#64748b" stroke-width="1.5">
+              <!-- Left Ticks (9, 7, 5, 3, 1) -->
+              <line x1="65" y1="265" x2="65" y2="275" /><text x="65" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">9</text>
+              <line x1="110" y1="266" x2="110" y2="274" /><text x="110" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">7</text>
+              <line x1="156" y1="266" x2="156" y2="274" /><text x="156" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">5</text>
+              <line x1="201" y1="266" x2="201" y2="274" /><text x="201" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">3</text>
+              <line x1="247" y1="266" x2="247" y2="274" /><text x="247" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">1</text>
+
+              <!-- Right Ticks (1, 3, 5, 7, 9) -->
+              <line x1="293" y1="266" x2="293" y2="274" /><text x="293" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">1</text>
+              <line x1="339" y1="266" x2="339" y2="274" /><text x="339" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">3</text>
+              <line x1="384" y1="266" x2="384" y2="274" /><text x="384" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">5</text>
+              <line x1="430" y1="266" x2="430" y2="274" /><text x="430" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">7</text>
+              <line x1="475" y1="265" x2="475" y2="275" /><text x="475" y="260" text-anchor="middle" fill="#64748b" font-size="9" stroke="none">9</text>
+
+              <!-- Up Ticks (9, 7, 5, 3, 1) -->
+              <line x1="265" y1="65" x2="275" y2="65" /><text x="282" y="68" fill="#64748b" font-size="9" stroke="none">9 (Up)</text>
+              <line x1="266" y1="110" x2="274" y2="110" /><text x="282" y="113" fill="#64748b" font-size="9" stroke="none">7</text>
+              <line x1="266" y1="156" x2="274" y2="156" /><text x="282" y="159" fill="#64748b" font-size="9" stroke="none">5</text>
+              <line x1="266" y1="201" x2="274" y2="201" /><text x="282" y="204" fill="#64748b" font-size="9" stroke="none">3</text>
+              <line x1="266" y1="247" x2="274" y2="247" /><text x="282" y="250" fill="#64748b" font-size="9" stroke="none">1</text>
+
+              <!-- Down Ticks (1, 3, 5, 7, 9) -->
+              <line x1="266" y1="293" x2="274" y2="293" /><text x="282" y="296" fill="#64748b" font-size="9" stroke="none">1</text>
+              <line x1="266" y1="339" x2="274" y2="339" /><text x="282" y="342" fill="#64748b" font-size="9" stroke="none">3</text>
+              <line x1="266" y1="384" x2="274" y2="384" /><text x="282" y="387" fill="#64748b" font-size="9" stroke="none">5</text>
+              <line x1="266" y1="430" x2="274" y2="430" /><text x="282" y="433" fill="#64748b" font-size="9" stroke="none">7</text>
+              <line x1="265" y1="475" x2="275" y2="475" /><text x="282" y="478" fill="#64748b" font-size="9" stroke="none">9 (Down)</text>
+            </g>
+
+            <!-- Outer Axis Headers -->
+            <text x="270" y="22" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700" letter-spacing="1">ASSERTIVENESS &rarr;</text>
+            <text x="18" y="274" text-anchor="middle" fill="#94a3b8" font-size="10">Ask &larr;</text>
+            <text x="522" y="274" text-anchor="middle" fill="#94a3b8" font-size="10">&rarr; Tell</text>
+
+            <text x="270" y="525" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700" letter-spacing="1">&darr; RESPONSIVENESS</text>
+            <text x="270" y="36" text-anchor="middle" fill="#94a3b8" font-size="10">&uarr; Task / Controlled</text>
+
+            <!-- Dynamic Marker for User Location -->
+            <g id="user-plot-marker" transform="translate(270, 270)">
+              <circle r="18" fill="rgba(99, 102, 241, 0.35)" filter="url(#gram-glow)">
+                <animate attributeName="r" values="14;22;14" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" />
+              </circle>
+              <circle r="8" fill="#ffffff" stroke="#6366f1" stroke-width="3" />
+              <g transform="translate(12, -14)">
+                <rect x="0" y="0" width="80" height="24" rx="12" fill="#0f172a" stroke="#6366f1" stroke-width="1.5" />
+                <text x="40" y="16" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700" id="svg-user-coords-text">(H: 0, V: 0)</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="gram-legend">
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--color-analytic);"></span>
+            <span><strong style="color: #38bdf8;">Analytic:</strong> Up + Left (Task-oriented & Ask-oriented)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--color-driver);"></span>
+            <span><strong style="color: #f87171;">Driver:</strong> Up + Right (Task-oriented & Tell-oriented)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--color-amiable);"></span>
+            <span><strong style="color: #34d399;">Amiable:</strong> Down + Left (People-oriented & Ask-oriented)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--color-expressive);"></span>
+            <span><strong style="color: #fbbf24;">Expressive:</strong> Down + Right (People-oriented & Tell-oriented)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           SECTION 5: DETAILED PROFILE TABS
+           ==================================================================== -->
+      <div class="analysis-tabs-card">
+        <nav class="tabs-header-nav">
+          <button class="tab-nav-btn active" onclick="switchResultTab('tab-profile')" id="t-tab-profile">
+            Style Profile
+          </button>
+          <button class="tab-nav-btn" onclick="switchResultTab('tab-needs')" id="t-tab-needs">
+            Likes & Needs
+          </button>
+          <button class="tab-nav-btn" onclick="switchResultTab('tab-from-your-style')" id="t-tab-from">
+            Flexing From Your Style
+          </button>
+          <button class="tab-nav-btn" onclick="switchResultTab('tab-to-others')" id="t-tab-to">
+            Flexing To Other Styles
+          </button>
+          <button class="tab-nav-btn" onclick="switchResultTab('tab-hints')" id="t-tab-hints">
+            Hints for Style Flexing
+          </button>
+          <button class="tab-nav-btn" onclick="switchResultTab('tab-all-matrix')" id="t-tab-all">
+            All 4 Archetypes
+          </button>
+        </nav>
+
+        <div class="tab-content-area">
+          <!-- TAB 1: Profile (Typical & Characteristic Behaviors) -->
+          <div id="tab-profile" class="tab-pane active">
+            <div class="detail-2col-grid">
+              <div class="content-box">
+                <h4 id="t-box-typical-title">⭐ 6 Most Typical Behaviors</h4>
+                <ul class="feature-list" id="list-tab-typical"></ul>
+              </div>
+
+              <div class="content-box">
+                <h4 id="t-box-char-title">🔍 Characteristic Behaviors</h4>
+                <ul class="feature-list scrollable-list" id="list-tab-characteristic"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Likes & Needs (Page 7) -->
+          <div id="tab-needs" class="tab-pane">
+            <div class="detail-2col-grid">
+              <div class="content-box">
+                <h4 style="color: #38bdf8;" id="t-box-likes-title">❤️ What I Most Like</h4>
+                <ul class="feature-list" id="list-tab-likes"></ul>
+              </div>
+
+              <div class="content-box">
+                <h4 style="color: #34d399;" id="t-box-needs-title">🛡️ What I Most Need</h4>
+                <ul class="feature-list" id="list-tab-needs"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Flexing From Your Style (Page 10) -->
+          <div id="tab-from-your-style" class="tab-pane">
+            <div class="self-flex-banner">
+              <span class="self-flex-badge" id="t-lbl-from-badge">CORE GROWTH DIRECTIVE</span>
+              <h3 class="self-flex-title" id="from-style-title">DECIDE and ACT</h3>
+              <p class="self-flex-desc" id="from-style-desc">Explanation text from page 10 of document.</p>
+            </div>
+
+            <div class="content-box">
+              <h4 id="t-box-why-flex-title">💡 Why Style Flexing Matters</h4>
+              <p id="t-box-why-flex-desc" style="font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);">
+                Style Flexing is the ability to adjust your personal communication and behavioral style to match the comfort level and preferences of others. It does not mean changing who you are; it means expanding your range of behavior to eliminate stress, improve trust, and build more effective relationships.
+              </p>
+            </div>
+          </div>
+
+          <!-- TAB 4: Flexing To Other Styles (Page 8) -->
+          <div id="tab-to-others" class="tab-pane">
+            <div class="flex-selector-bar">
+              <button class="flex-style-btn active to-analytic" onclick="showFlexToTarget('ANALYTICS')">
+                <span>🔬</span> <span id="t-btn-flex-ana">To Analytics</span>
+              </button>
+              <button class="flex-style-btn to-driver" onclick="showFlexToTarget('DRIVERS')">
+                <span>⚡</span> <span id="t-btn-flex-drv">To Drivers</span>
+              </button>
+              <button class="flex-style-btn to-amiable" onclick="showFlexToTarget('AMIABLES')">
+                <span>🤝</span> <span id="t-btn-flex-ami">To Amiables</span>
+              </button>
+              <button class="flex-style-btn to-expressive" onclick="showFlexToTarget('EXPRESSIVES')">
+                <span>🌟</span> <span id="t-btn-flex-exp">To Expressives</span>
+              </button>
+            </div>
+
+            <div class="content-box">
+              <h4 id="flex-to-target-title">How to flex when interacting with Analytics:</h4>
+              <ul class="feature-list" id="list-flex-to-target"></ul>
+            </div>
+          </div>
+
+          <!-- TAB 5: Hints for Style Flexing (Page 9) -->
+          <div id="tab-hints" class="tab-pane">
+            <div class="hints-axis-matrix">
+              <!-- Assertiveness Axis -->
+              <div class="hints-axis-card">
+                <h4 class="hints-axis-title" id="t-hints-assert-head">Trục Assertiveness (Quyết đoán)</h4>
+
+                <div class="hints-direction-block">
+                  <div class="hints-dir-head" style="color: #f87171;">
+                    <span>&rarr;</span> <span id="t-hints-inc-assert">To increase Assertiveness</span>
+                  </div>
+                  <div class="hints-dir-sub" id="t-hints-inc-assert-sub">Tell more often • Ask less often</div>
+                  <ul class="feature-list" id="list-hints-inc-assert"></ul>
+                </div>
+
+                <div class="hints-direction-block" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+                  <div class="hints-dir-head" style="color: #38bdf8;">
+                    <span>&larr;</span> <span id="t-hints-dec-assert">To decrease Assertiveness</span>
+                  </div>
+                  <div class="hints-dir-sub" id="t-hints-dec-assert-sub">Ask more often • Tell less often</div>
+                  <ul class="feature-list" id="list-hints-dec-assert"></ul>
+                </div>
+              </div>
+
+              <!-- Responsiveness Axis -->
+              <div class="hints-axis-card">
+                <h4 class="hints-axis-title" id="t-hints-resp-head">Trục Responsiveness (Cởi mở Cảm xúc)</h4>
+
+                <div class="hints-direction-block">
+                  <div class="hints-dir-head" style="color: #fbbf24;">
+                    <span>&darr;</span> <span id="t-hints-inc-resp">To increase Responsiveness</span>
+                  </div>
+                  <div class="hints-dir-sub" id="t-hints-inc-resp-sub">Be willing to open yourself to others • Exert control less often</div>
+                  <ul class="feature-list" id="list-hints-inc-resp"></ul>
+                </div>
+
+                <div class="hints-direction-block" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+                  <div class="hints-dir-head" style="color: #34d399;">
+                    <span>&uarr;</span> <span id="t-hints-dec-resp">To decrease Responsiveness</span>
+                  </div>
+                  <div class="hints-dir-sub" id="t-hints-dec-resp-sub">Exert control more often • Express emotion and feelings less often</div>
+                  <ul class="feature-list" id="list-hints-dec-resp"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 6: All 4 Archetypes Matrix -->
+          <div id="tab-all-matrix" class="tab-pane">
+            <div class="all-styles-matrix-grid">
+              <div class="matrix-arch-box analytic">
+                <h4 style="color: var(--color-analytic);">ANALYTICS (Up + Left)</h4>
+                <p style="margin-bottom: 12px; font-weight: 500;" id="t-mat-ana-traits">Logical • Thorough • Serious • Systematic • Careful • Orderly</p>
+                <p id="t-mat-ana-desc">Focuses on facts, details, and quality. Needs time to analyze and deliberate.</p>
+              </div>
+
+              <div class="matrix-arch-box driver">
+                <h4 style="color: var(--color-driver);">DRIVERS (Up + Right)</h4>
+                <p style="margin-bottom: 12px; font-weight: 500;" id="t-mat-drv-traits">Independent • Direct • Decisive • Pragmatic • Efficient • Determined</p>
+                <p id="t-mat-drv-desc">Focuses on bottom-line results, speed, and pragmatic action. Prefers direct communication.</p>
+              </div>
+
+              <div class="matrix-arch-box amiable">
+                <h4 style="color: var(--color-amiable);">AMIABLES (Down + Left)</h4>
+                <p style="margin-bottom: 12px; font-weight: 500;" id="t-mat-ami-traits">Supportive • Cooperative • Diplomatic • Loyal • Patient • Agreeable</p>
+                <p id="t-mat-ami-desc">Focuses on relationships, teamwork, and harmony. Avoids conflict and builds consensus.</p>
+              </div>
+
+              <div class="matrix-arch-box expressive">
+                <h4 style="color: var(--color-expressive);">EXPRESSIVES (Down + Right)</h4>
+                <p style="margin-bottom: 12px; font-weight: 500;" id="t-mat-exp-traits">Out-going • Enthusiastic • Persuasive • Fun-loving • Spontaneous • Free-flowing</p>
+                <p id="t-mat-exp-desc">Focuses on vision, excitement, big ideas, and inspiring people. Thrives in energetic environments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons Bar -->
+      <div class="results-bottom-bar">
+        <button class="btn btn-primary" onclick="window.print()" id="t-btn-print">
+          🖨️ Print / Export PDF
+        </button>
+        <button class="btn btn-secondary" onclick="copyResultsSummary()" id="t-btn-copy">
+          📋 Copy Summary
+        </button>
+        <button class="btn btn-outline-danger" onclick="restartAssessment()" id="t-btn-retake">
+          🔄 Retake Assessment
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast-msg">Copied!</div>
+
+  <!-- ====================================================================
+       JAVASCRIPT ARCHITECTURE
+       1. DATA ARRAYS & OBJECTS (Verbatim from PDF)
+       2. SCORING MAPPING (Page 1 & 2 formula)
+       3. BILINGUAL DICTIONARY (EN & VI)
+       4. APPLICATION LOGIC & STATE ENGINE
+       ==================================================================== -->
+  <script>
+    /* ==========================================================================
+       SECTION A: 18 ASSESSMENT QUESTIONS (VERBATIM FROM PAGE 1 OF PDF)
+       ========================================================================== */
+    const questions = [
+      {
+        id: 1,
+        axis: 'vertical',
+        optionA: { en: 'Use more gestures', vi: 'Sử dụng nhiều cử chỉ điệu bộ hơn' },
+        optionB: { en: 'Use less gestures', vi: 'Ít dùng cử chỉ điệu bộ hơn' }
+      },
+      {
+        id: 2,
+        axis: 'horizontal',
+        optionA: { en: 'Speak more softly', vi: 'Nói nhỏ nhẹ, từ tốn hơn' },
+        optionB: { en: 'Speak more loudly', vi: 'Nói to, rõ ràng và vang hơn' }
+      },
+      {
+        id: 3,
+        axis: 'vertical',
+        optionA: { en: 'Freer, more flowing body movement', vi: 'Cử động cơ thể tự nhiên, phóng khoáng, uyển chuyển' },
+        optionB: { en: 'More controlled body movement', vi: 'Cử động cơ thể kiềm chế, chừng mực, có kiểm soát' }
+      },
+      {
+        id: 4,
+        axis: 'horizontal',
+        optionA: { en: 'Speak more slowly', vi: 'Nói chậm rãi hơn' },
+        optionB: { en: 'Speak more rapidly', vi: 'Nói nhanh hơn, nhịp điệu dồn dập' }
+      },
+      {
+        id: 5,
+        axis: 'vertical',
+        optionA: { en: 'More lively facial expression', vi: 'Nét mặt sinh động, biểu cảm phong phú' },
+        optionB: { en: 'Less facial expression', vi: 'Nét mặt ít biểu cảm, điềm tĩnh, nghiêm nghị' }
+      },
+      {
+        id: 6,
+        axis: 'horizontal',
+        optionA: { en: 'Slower gestures and body movement', vi: 'Cử chỉ và chuyển động cơ thể chậm rãi hơn' },
+        optionB: { en: 'Faster gestures and body movement', vi: 'Cử chỉ và chuyển động cơ thể nhanh nhẹn, dứt khoát' }
+      },
+      {
+        id: 7,
+        axis: 'vertical',
+        optionA: { en: 'More variation in voice', vi: 'Giọng nói có nhiều ngữ điệu, trầm bổng biến hóa' },
+        optionB: { en: 'Less variation in voice', vi: 'Giọng nói đều đều, ít biến đổi ngữ điệu' }
+      },
+      {
+        id: 8,
+        axis: 'horizontal',
+        optionA: { en: 'Tend to lean backward in conversations', vi: 'Có xu hướng ngả người về sau khi trò chuyện' },
+        optionB: { en: 'Tend to lean forward when talking', vi: 'Có xu hướng rướn người về phía trước khi nói' }
+      },
+      {
+        id: 9,
+        axis: 'vertical',
+        optionA: { en: 'More flexible about time', vi: 'Linh hoạt, thoải mái và dễ thích nghi về thời gian' },
+        optionB: { en: 'More disciplined about time', vi: 'Kỷ luật, đúng giờ và chuẩn xác về thời gian' }
+      },
+      {
+        id: 10,
+        axis: 'horizontal',
+        optionA: { en: 'Express facts and opinions more tentatively', vi: 'Bày tỏ dữ kiện và quan điểm một cách thận trọng, dè dặt' },
+        optionB: { en: 'Express facts and opinions more strongly', vi: 'Bày tỏ dữ kiện và quan điểm một cách mạnh mẽ, quả quyết' }
+      },
+      {
+        id: 11,
+        axis: 'vertical',
+        optionA: { en: 'More people-oriented', vi: 'Thiên về con người và cảm xúc mối quan hệ' },
+        optionB: { en: 'More task-oriented', vi: 'Thiên về nhiệm vụ, công việc và mục tiêu' }
+      },
+      {
+        id: 12,
+        axis: 'horizontal',
+        optionA: { en: 'Decide more slowly', vi: 'Đưa ra quyết định thận trọng, chậm rãi hơn' },
+        optionB: { en: 'Decide more quickly', vi: 'Đưa ra quyết định nhanh chóng, dứt khoát hơn' }
+      },
+      {
+        id: 13,
+        axis: 'vertical',
+        optionA: { en: 'Appear more playful and fun-loving', vi: 'Vẻ ngoài vui vẻ, thích bông đùa, yêu đời' },
+        optionB: { en: 'Appear more serious', vi: 'Vẻ ngoài nghiêm túc, trang trọng, chín chắn' }
+      },
+      {
+        id: 14,
+        axis: 'horizontal',
+        optionA: { en: 'Take fewer chances, are less risk-oriented', vi: 'Ít mạo hiểm, thận trọng và hạn chế rủi ro' },
+        optionB: { en: 'Take more chances, are more risk-oriented', vi: 'Dám chấp nhận rủi ro, sẵn sàng nắm bắt cơ hội' }
+      },
+      {
+        id: 15,
+        axis: 'vertical',
+        optionA: { en: 'Decisions based more on feelings or opinions', vi: 'Quyết định dựa nhiều vào cảm xúc hoặc quan điểm cá nhân' },
+        optionB: { en: 'Decisions based more on facts and results', vi: 'Quyết định dựa nhiều vào sự thật, số liệu và kết quả' }
+      },
+      {
+        id: 16,
+        axis: 'horizontal',
+        optionA: { en: 'Exert less pressure on others for decisions', vi: 'Ít gây áp lực lên người khác khi cần ra quyết định' },
+        optionB: { en: 'Exert more pressure on others for decisions', vi: 'Tạo áp lực, thúc đẩy người khác phải ra quyết định ngay' }
+      },
+      {
+        id: 17,
+        axis: 'vertical',
+        optionA: { en: 'More likely to tell stories and show feelings', vi: 'Thích kể chuyện phiếm và bộc lộ cảm xúc' },
+        optionB: { en: 'Less likely to tell stories and show feelings', vi: 'Ít kể chuyện phiếm, kín đáo và ít biểu lộ cảm xúc' }
+      },
+      {
+        id: 18,
+        axis: 'horizontal',
+        optionA: { en: 'Less eye contact', vi: 'Ít giao tiếp bằng ánh mắt trực diện hơn' },
+        optionB: { en: 'More eye contact', vi: 'Giao tiếp bằng ánh mắt trực diện, tự tin hơn' }
+      }
+    ];
+
+    /* ==========================================================================
+       SECTION B: SCORING MAPPING (EXACTLY AS PRINTED ON PAGE 1 OF PDF)
+       Odd items: Vertical axis (Down vs Up)
+       Even items: Horizontal axis (Left vs Right)
+       Total Down + Up = 9; Total Left + Right = 9.
+       ========================================================================== */
+    const scoringMap = {
+      1:  { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      2:  { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      3:  { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      4:  { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      5:  { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      6:  { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      7:  { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      8:  { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      9:  { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      10: { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      11: { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      12: { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      13: { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      14: { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      15: { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      16: { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } },
+      17: { optionA: { dimension: 'vertical', col: 'down' },  optionB: { dimension: 'vertical', col: 'up' } },
+      18: { optionA: { dimension: 'horizontal', col: 'left' }, optionB: { dimension: 'horizontal', col: 'right' } }
+    };
+
+    /* ==========================================================================
+       SECTION C: STYLE PROFILES DATA (PAGES 3, 4, 5, 6, 7, 10 OF PDF)
+       ========================================================================== */
+    const styleProfiles = {
+      ANALYTIC: {
+        id: 'ANALYTIC',
+        code: 'analytic',
+        nameEn: 'Analytic',
+        nameVi: 'Người Phân Tích (Analytic)',
+        mottoEn: '"Do it right the first time! Let facts, systems and logic lead the way."',
+        mottoVi: '"Làm chuẩn ngay từ lần đầu tiên! Hãy để dữ liệu, hệ thống và logic dẫn lối."',
+        themeColor: '#0ea5e9',
+        icon: '🔬',
+        typicalBehaviorsEn: [
+          'LOGICAL', 'THOROUGH', 'SERIOUS', 'SYSTEMATIC', 'CAREFUL', 'ORDERLY'
+        ],
+        typicalBehaviorsVi: [
+          'LOGIC & CHẶT CHẼ', 'KỸ LƯỠNG & THẤU ĐÁO', 'NGHIÊM TÚC', 'HỆ THỐNG & BÀI BẢN', 'CẨN TRỌNG', 'NGĂN NẮP & TRẬT TỰ'
+        ],
+        characteristicBehaviorsEn: [
+          'Slower walk and body movements',
+          'Talks less',
+          'Subtle, under-stated body language, may seem stiff',
+          'Ask-oriented even when making statements and giving directions',
+          'Slow, quiet, careful speaking',
+          'May stop in the middle of a statement to think, often losing the listener',
+          'Expresses ideas tentatively, qualifying and adding more information',
+          'Leans backward when talking',
+          'Less risk-oriented',
+          'Emphasizes quality ("Do it right the first time!")',
+          'Focuses on details',
+          'Examines many opinions and options',
+          'Decides slowly',
+          'Avoids exerting pressure on others to make decisions',
+          'Doesn’t tell many stories',
+          'Likes to work and be alone',
+          'Little variation in voice',
+          'Task-oriented',
+          'Appears serious and reserved',
+          'Detached from feelings, less emotional',
+          'Simple, neat, conventional surroundings and space',
+          'Dresses conservatively',
+          'Leisure activities often alone',
+          'Reads a lot'
+        ],
+        characteristicBehaviorsVi: [
+          'Dáng đi và cử động cơ thể chậm rãi, khoan thai',
+          'Ít nói, thích quan sát và lắng nghe hơn',
+          'Ngôn ngữ cơ thể kín đáo, có phần cứng nhắc hoặc giữ kẽ',
+          'Xu hướng hỏi (Ask-oriented) ngay cả khi đưa ra ý kiến hoặc hướng dẫn',
+          'Nói chuyện chậm, nhỏ nhẹ và rất thận trọng từng từ ngữ',
+          'Có thể dừng lại giữa chừng câu nói để suy ngẫm kỹ lưỡng',
+          'Diễn đạt ý kiến dè dặt, luôn kèm theo điều kiện và bổ sung dữ liệu',
+          'Ngả người về sau khi trò chuyện',
+          'Ít chấp nhận rủi ro, thích sự an toàn',
+          'Đặc biệt coi trọng chất lượng ("Làm chuẩn ngay từ lần đầu")',
+          'Tập trung sâu vào tiểu tiết và dữ liệu chi tiết',
+          'Cân nhắc rất nhiều ý kiến và phương án trước khi chọn',
+          'Ra quyết định chậm rãi sau khi đã tính toán kỹ',
+          'Tránh gây áp lực lên người khác để ép họ ra quyết định',
+          'Ít khi kể chuyện cười hay chuyện phiếm ngoài lề',
+          'Thích làm việc độc lập trong không gian riêng',
+          'Giọng nói đều đều, ít biến đổi âm vực',
+          'Thiên về công việc và nhiệm vụ (Task-oriented)',
+          'Vẻ ngoài nghiêm túc, trầm tĩnh và kín đáo',
+          'Kiểm soát cảm xúc cao, ít biểu lộ tình cảm',
+          'Không gian làm việc giản dị, gọn gàng và quy củ',
+          'Ăn mặc theo phong cách truyền thống, lịch sự, chuẩn mực',
+          'Hoạt động giải trí thường có tính chất cá nhân',
+          'Đọc nhiều tài liệu, sách chuyên môn sâu'
+        ],
+        whatILikeEn: [
+          'Time to study a situation',
+          'Details to make the right decision',
+          'To work independently',
+          'Encouragement to express my ideas',
+          'To set own success measurements',
+          'Non-routine work within reasonable boundaries',
+          'To be "asked", not "told"',
+          'You provide rules and guidelines, I’ll do the rest'
+        ],
+        whatILikeVi: [
+          'Đủ thời gian để nghiên cứu và phân tích tình huống',
+          'Đầy đủ dữ liệu chi tiết để đưa ra quyết định chính xác',
+          'Được làm việc độc lập, tự chủ',
+          'Được khuyến khích và lắng nghe khi bày tỏ ý kiến',
+          'Tự thiết lập tiêu chuẩn đo lường thành công của mình',
+          'Công việc sáng tạo phi thông lệ nhưng nằm trong ranh giới hợp lý',
+          'Được "hỏi ý kiến" hơn là bị "ra lệnh"',
+          'Cung cấp quy tắc và hướng dẫn rõ ràng, còn lại tôi sẽ tự hoàn tất'
+        ],
+        whatINeedEn: [
+          'Encourage me to be decisive',
+          'To have deadlines for goals and decisions',
+          'Follow up support',
+          'Review sessions immediately when my part is completed',
+          'Reliable, factual data',
+          'Concrete, specific information'
+        ],
+        whatINeedVi: [
+          'Sự thúc đẩy và động viên để quyết đoán hơn',
+          'Hạn chót (Deadlines) rõ ràng cho các mục tiêu và quyết định',
+          'Hỗ trợ theo dõi tiến độ sau khi triển khai',
+          'Các buổi đánh giá nghiệm thu ngay khi phần việc hoàn thành',
+          'Dữ liệu đáng tin cậy, có căn cứ thực tế vững chắc',
+          'Thông tin cụ thể, chính xác, không chung chung mơ hồ'
+        ],
+        fromYourStyleEn: {
+          title: 'DECIDE and ACT',
+          desc: 'Your slow, systematic fact gathering, careful weighing of alternatives and cautious decision-making often cause stress in others. Make a determined effort to DECIDE. This may mean taking a stand even if you are not fully satisfied you have enough facts. Don’t be a bottleneck to the progress of others. Once you have made a decision, act on it with reasonable speed.'
+        },
+        fromYourStyleVi: {
+          title: 'HÃY QUYẾT ĐỊNH VÀ HÀNH ĐỘNG (DECIDE and ACT)',
+          desc: 'Quá trình thu thập dữ kiện chậm rãi, cân đo đong đếm quá nhiều phương án và sự thận trọng quá mức của bạn đôi khi gây căng thẳng và làm chậm tiến độ của đồng đội. Hãy nỗ lực hết mình để RA QUYẾT ĐỊNH. Đôi khi bạn cần dám giữ vững lập trường ngay cả khi chưa có 100% dữ liệu trong tay. Đừng trở thành "điểm nghẽn" (bottleneck) của tập thể. Một khi đã quyết định, hãy hành động với tốc độ hợp lý.'
+        }
+      },
+
+      DRIVER: {
+        id: 'DRIVER',
+        code: 'driver',
+        nameEn: 'Driver',
+        nameVi: 'Người Chỉ Huy (Driver)',
+        mottoEn: '"Move quickly, focus on results, and take charge to overcome challenges."',
+        mottoVi: '"Hành động nhanh chóng, tập trung kết quả, vượt qua mọi trở ngại!"',
+        themeColor: '#ef4444',
+        icon: '⚡',
+        typicalBehaviorsEn: [
+          'INDEPENDENT', 'DIRECT', 'DECISIVE', 'PRAGMATIC/PRACTICAL', 'EFFICIENT', 'DETERMINED'
+        ],
+        typicalBehaviorsVi: [
+          'ĐỘC LẬP & TỰ CHỦ', 'TRỰC DIỆN & THẲNG THẮN', 'QUYẾT ĐOÁN', 'THỰC TẾ & THỰC DỤNG', 'HIỆU QUẢ & TỐI ƯU', 'KIÊN ĐỊNH & QUYẾT TÂM'
+        ],
+        characteristicBehaviorsEn: [
+          'Moves quickly, forcefully',
+          'Competitive',
+          'Sits and stands up straight',
+          'Leans forward when making a point',
+          'Tell-oriented, directive',
+          'Voice forceful (although not always loud)',
+          'Expresses opinions and facts strongly',
+          'Direct, down to earth speaking',
+          'Risk-oriented',
+          'Decides quickly, then moves',
+          'Little facial expression',
+          'Few and controlled body movements',
+          'Task-oriented and results-oriented',
+          'Practical',
+          'Strong opinions based on a few critical facts',
+          'Disciplined about time',
+          'Appears serious, focused',
+          'Not likely to tell stories',
+          'Prefers working alone',
+          'Prefers directing others',
+          'Brief, sometimes abrupt interactions',
+          'Functional, simple work environment',
+          'Action-oriented in work and leisure',
+          'Prefers brief, summative reading material'
+        ],
+        characteristicBehaviorsVi: [
+          'Chuyển động nhanh nhẹn, dứt khoát và mạnh mẽ',
+          'Tính cạnh tranh rất cao, luôn muốn dẫn đầu',
+          'Tư thế ngồi và đứng thẳng thớm, đĩnh đạc',
+          'Rướn người về phía trước khi nhấn mạnh một quan điểm',
+          'Xu hướng nói và chỉ đạo (Tell-oriented, directive)',
+          'Giọng nói đầy uy lực (dù không nhất thiết phải quát to)',
+          'Bày tỏ ý kiến và sự kiện một cách mạnh mẽ, dứt khoát',
+          'Nói chuyện đi thẳng vào vấn đề, không vòng vo',
+          'Dám chấp nhận rủi ro vì mục tiêu lớn',
+          'Ra quyết định chớp nhoáng rồi hành động ngay',
+          'Ít biểu lộ cảm xúc trên gương mặt',
+          'Cử chỉ ít nhưng được kiểm soát tốt',
+          'Định hướng công việc và tập trung tuyệt đối vào kết quả',
+          'Thực tế, không mơ mộng viển vông',
+          'Hình thành quan điểm mạnh mẽ dựa trên một vài dữ kiện trọng yếu',
+          'Kỷ luật cao độ về mặt thời gian',
+          'Vẻ ngoài nghiêm túc, tập trung cao độ',
+          'Ít khi kể chuyện dông dài',
+          'Thích làm việc độc lập hoặc ở vị trí dẫn dắt',
+          'Thích chỉ đạo và phân công người khác',
+          'Giao tiếp ngắn gọn, đôi khi bị coi là cụt ngủn hoặc đột ngột',
+          'Môi trường làm việc tối giản, tiện dụng',
+          'Luôn hướng đến hành động cả trong công việc lẫn lúc nghỉ ngơi',
+          'Thích tài liệu tóm tắt súc tích, gạch đầu dòng'
+        ],
+        whatILikeEn: [
+          'Give me goals and leave me alone',
+          'Feedback on accomplishments',
+          'Be frank, direct and honest',
+          'To have open communication lines',
+          'Freedom to question and challenge'
+        ],
+        whatILikeVi: [
+          'Giao cho tôi mục tiêu rõ ràng và để tôi tự do thực hiện',
+          'Nhận phản hồi trực tiếp dựa trên kết quả đạt được',
+          'Sự thẳng thắn, chân thành và minh bạch',
+          'Kênh giao tiếp mở, thông suốt',
+          'Tự do đặt câu hỏi, thách thức hiện trạng và tìm cách làm tốt hơn'
+        ],
+        whatINeedEn: [
+          'Some constraint on my quick decisions',
+          'Feedback on how I treat others',
+          'Constructive criticism',
+          'A heavy work schedule',
+          'Alignment with related efforts'
+        ],
+        whatINeedVi: [
+          'Một số giới hạn/rào cản để kiềm chế các quyết định quá vội vã',
+          'Phản hồi chân thành về cách tôi đang đối xử với người khác',
+          'Góp ý mang tính xây dựng mang lại giá trị thực tiễn',
+          'Một lịch trình làm việc bận rộn, đầy thách thức',
+          'Sự đồng bộ nhịp nhàng với những nỗ lực chung của tổ chức'
+        ],
+        fromYourStyleEn: {
+          title: 'LISTEN and RESPECT',
+          desc: 'Your fast-paced, telling, goal-oriented approach often causes stress. Make a determined effort to LISTEN to others. Try to clearly understand their ideas, suggestions and requests. Listen until you understand the nature and strength of their feelings, values and the assumptions on which their ideas are based.'
+        },
+        fromYourStyleVi: {
+          title: 'HÃY LẮNG NGHE VÀ TÔN TRỌNG (LISTEN and RESPECT)',
+          desc: 'Tốc độ nhanh, phong cách áp đặt ra lệnh và sự tập trung quá mức vào kết quả của bạn thường vô tình gây căng thẳng và áp lực lớn cho người xung quanh. Hãy nỗ lực LẮNG NGHE người khác. Cố gắng thấu hiểu ý tưởng, đề xuất và nhu cầu của họ. Lắng nghe cho đến khi bạn hiểu được bản chất cảm xúc, các giá trị và những giả định đằng sau quan điểm của họ.'
+        }
+      },
+
+      AMIABLE: {
+        id: 'AMIABLE',
+        code: 'amiable',
+        nameEn: 'Amiable',
+        nameVi: 'Người Hòa Nhã (Amiable)',
+        mottoEn: '"Build genuine trust, foster team cooperation, and grow together harmoniously."',
+        mottoVi: '"Hợp tác chân thành, xây dựng niềm tin và đồng lòng cùng phát triển."',
+        themeColor: '#10b981',
+        icon: '🤝',
+        typicalBehaviorsEn: [
+          'SUPPORTIVE', 'COOPERATIVE', 'DIPLOMATIC', 'LOYAL', 'PATIENT', 'AGREEABLE'
+        ],
+        typicalBehaviorsVi: [
+          'ỦNG HỘ & NÂNG ĐỠ', 'HỢP TÁC CAO', 'KHÉO LÉO & NGOẠI GIAO', 'TRUNG THÀNH & TẬN TỤY', 'KIÊN NHẪN & NHẪN NẠI', 'DỄ CHỊU & DỄ HÒA ĐỒNG'
+        ],
+        characteristicBehaviorsEn: [
+          'Slower walk and body movements',
+          'May not talk much, especially in groups',
+          'Moderate or soft voice',
+          'Speaks slowly',
+          'Leans backward even when making a strong point',
+          'Invites others’ opinions and feelings',
+          'Ideas expressed often as a combination of others’ ideas',
+          'Waits for others to speak first',
+          'Exerts little pressure on others to accept his ideas and decisions',
+          'Not risk-oriented, likes guarantees',
+          'Decides slowly',
+          'People and team-oriented',
+          'Remembers and responds to personal data about others',
+          'Prefers one-to-one interactions',
+          'Feelings-oriented',
+          'Avoids conflict and anger',
+          'Friendly body language and eye contact',
+          'Flexible about time',
+          'Non-dramatic, non-aggressive movements',
+          'Offers compromises and builds on others’ ideas',
+          'Informal surroundings with pictures of family and friends',
+          'Spends leisure time with people',
+          'Likes to read fiction, inspirational and biographical books'
+        ],
+        characteristicBehaviorsVi: [
+          'Dáng đi và cử động cơ thể nhẹ nhàng, từ tốn',
+          'Ít nói khi ở trong nhóm đông người',
+          'Giọng nói ấm áp, vừa phải hoặc nhỏ nhẹ',
+          'Nói năng chậm rãi, ân cần',
+          'Ngả người về sau ngay cả khi đang bảo vệ quan điểm',
+          'Chủ động hỏi ý kiến và quan tâm cảm xúc của người khác',
+          'Ý kiến đưa ra thường là sự tổng hợp hài hòa các ý của mọi người',
+          'Nhường người khác lên tiếng trước',
+          'Ít khi gây sức ép để bắt người khác chấp nhận ý mình',
+          'Không thích mạo hiểm, chuộng sự đảm bảo an toàn',
+          'Ra quyết định cẩn trọng, từ tốn',
+          'Định hướng con người và tinh thần đồng đội sâu sắc',
+          'Ghi nhớ và quan tâm chân thành đến đời sống cá nhân của bạn bè',
+          'Thích tương tác trò chuyện 1-1 hơn là đám đông',
+          'Định hướng cảm xúc và sự đồng cảm',
+          'Tránh xung đột, đối đầu và sự giận dữ',
+          'Ngôn ngữ cơ thể thân thiện, ánh mắt ấm áp',
+          'Linh hoạt và thoải mái về thời gian',
+          'Cử động không kịch tính, phi hung hăng',
+          'Đưa ra các giải pháp thỏa hiệp, bồi đắp trên ý tưởng của người khác',
+          'Không gian làm việc ấm cúng với hình ảnh gia đình, bạn bè',
+          'Dành thời gian rảnh rỗi ở bên cạnh những người thân yêu',
+          'Thích đọc tiểu thuyết, sách truyền cảm hứng và hồi ký nhân vật'
+        ],
+        whatILikeEn: [
+          'Well defined goals',
+          'Directions, information and guidance for new responsibilities',
+          'To be treated like a person, not a stereotype',
+          'Specific, not vagueness',
+          'Affirmation and assurance',
+          'Adequate time to do the job',
+          'Reasons for making changes',
+          'Trust, not manipulation'
+        ],
+        whatILikeVi: [
+          'Mục tiêu được định nghĩa rõ ràng, minh bạch',
+          'Sự hướng dẫn, chỉ dẫn thông tin khi tiếp nhận trách nhiệm mới',
+          'Được tôn trọng như một con người trọn vẹn, không bị đóng khung định kiến',
+          'Thông tin cụ thể, rõ ràng, không mơ hồ',
+          'Sự khẳng định, khích lệ và an tâm',
+          'Đủ thời gian hợp lý để hoàn thành công việc chu đáo',
+          'Hiểu rõ lý do đằng sau mỗi sự thay đổi',
+          'Sự tin cậy và chân thành, không thao túng tâm lý'
+        ],
+        whatINeedEn: [
+          'Honest feedback',
+          'To be able to propose ideas',
+          'Clear, concise instructions',
+          'To know the goals',
+          'Reminders about good action planning',
+          'Frequent progress review',
+          'Encouragement',
+          'Recognition',
+          'Safety'
+        ],
+        whatINeedVi: [
+          'Những phản hồi trung thực nhưng tế nhị',
+          'Cơ hội để đề xuất ý tưởng của riêng mình',
+          'Chỉ dẫn rõ ràng, ngắn gọn và dễ hiểu',
+          'Biết rõ mục tiêu chung của tập thể',
+          'Nhắc nhở về việc lập kế hoạch hành động cụ thể',
+          'Các buổi đánh giá tiến độ định kỳ thường xuyên',
+          'Sự động viên, khích lệ tinh thần',
+          'Sự công nhận và ghi nhận công sức',
+          'Cảm giác an toàn trong môi trường làm việc'
+        ],
+        fromYourStyleEn: {
+          title: 'STRETCH – FOCUS and RISK',
+          desc: 'Your slower-paced, people-oriented, cooperative, low-risk approach may stress others who operate quickly and are task oriented. STRETCH yourself. Demonstrate self-determination. Set significant, but attainable goals and carry them through. Don’t avoid issues. Let others know where you stand. Challenge others to perform at their best.'
+        },
+        fromYourStyleVi: {
+          title: 'HÃY MỞ RỘNG BẢN THÂN - TẬP TRUNG VÀ DÁM CHẤP NHẬN RỦI RO (STRETCH – FOCUS and RISK)',
+          desc: 'Cách tiếp cận chậm rãi, thiên về con người và né tránh rủi ro của bạn đôi khi khiến những người làm việc nhanh và hướng công việc cảm thấy sốt ruột. Hãy MỞ RỘNG GIỚI HẠN BẢN THÂN (Stretch yourself). Thể hiện sự tự quyết mạnh mẽ hơn. Đặt ra những mục tiêu lớn lao nhưng khả thi và kiên trì theo đuổi tới cùng. Đừng né tránh các vấn đề gai góc. Hãy để mọi người biết rõ lập trường kiên định của bạn. Thử thách người khác để cùng phát huy năng lực tối đa.'
+        }
+      },
+
+      EXPRESSIVE: {
+        id: 'EXPRESSIVE',
+        code: 'expressive',
+        nameEn: 'Expressive',
+        nameVi: 'Người Nhiệt Huyết (Expressive)',
+        mottoEn: '"Inspire others, lead with energy and imagination, and embrace bold ventures."',
+        mottoVi: '"Truyền cảm hứng, sáng tạo đột phá, kết nối triệu nụ cười!"',
+        themeColor: '#f59e0b',
+        icon: '🌟',
+        typicalBehaviorsEn: [
+          'OUT-GOING', 'ENTHUSIASTIC', 'PERSUASIVE', 'FUN-LOVING', 'SPONTANEOUS/IMPULSIVE', 'FREE-FLOWING'
+        ],
+        typicalBehaviorsVi: [
+          'HƯỚNG NGOẠI & HÒA ĐỒNG', 'HÀO HỨNG & NHIỆT TÌNH', 'THUYẾT PHỤC & LÔI CUỐN', 'VUI VẺ & YÊU ĐỜI', 'TỰ NHIÊN & BỘC PHÁT', 'PHÓNG KHOÁNG & UYỂN CHUYỂN'
+        ],
+        characteristicBehaviorsEn: [
+          'Energetic, fast-paced body movements',
+          'Decides quickly',
+          'Competitive',
+          'Loud, rapid speech with few hesitations',
+          'Sits straight, leans forward',
+          'Tell-oriented, seems bossy',
+          'Strongly expresses opinions based largely on intuition',
+          'Assumes others will follow their lead',
+          'Risk-oriented',
+          'Initiates projects',
+          'Dislikes routine',
+          'More, free flowing, dramatic body language',
+          'Direct eye contact and expressive face',
+          'Playful and fun loving, likes parties',
+          'Dramatic ways of speaking',
+          'Less concern for facts and details',
+          'Tells jokes and stories',
+          'May wander from topic or switch topics',
+          'Sociable, people-oriented',
+          'Likes to perform',
+          'Moods fluctuate',
+          'Feelings and people-oriented',
+          'Colorful, bold environment and dress',
+          'Collects trophies and inspirational sayings'
+        ],
+        characteristicBehaviorsVi: [
+          'Cử động cơ thể nhanh nhẹn, giàu năng lượng',
+          'Ra quyết định chớp nhoáng theo linh cảm',
+          'Có tính cạnh tranh cao',
+          'Nói to, nhanh, ít khi ngập ngừng hay do dự',
+          'Ngồi thẳng người, rướn người về phía trước',
+          'Xu hướng nói nhiều, thích điều phối (Tell-oriented)',
+          'Bày tỏ ý kiến mạnh mẽ chủ yếu dựa trên trực giác cá nhân',
+          'Luôn tin rằng mọi người sẽ hào hứng đi theo sự dẫn dắt của mình',
+          'Sẵn sàng chấp nhận rủi ro lớn',
+          'Thích khởi xướng các dự án mới đầy màu sắc',
+          'Cực kỳ ghét sự đơn điệu và thói quen rập khuôn',
+          'Ngôn ngữ cơ thể biểu cảm, kịch tính, tự do',
+          'Ánh mắt trực diện và gương mặt vô cùng sinh động',
+          'Vui vẻ, yêu đời, thích tiệc tùng và không khí lễ hội',
+          'Cách nói chuyện lôi cuốn, kịch tính hóa vấn đề',
+          'Ít bận tâm đến số liệu vụn vặt và chi tiết tỉ mỉ',
+          'Thích kể chuyện cười và chuyện đời sống',
+          'Có thể chuyển đề tài nhanh hoặc nói lan man ngoài chủ đề',
+          'Rất hòa đồng, lấy con người làm trung tâm',
+          'Thích đứng trên sân khấu và thể hiện tài năng',
+          'Tâm trạng dễ dao động theo cảm xúc',
+          'Định hướng cảm xúc và kết nối con người',
+          'Không gian sống và trang phục nhiều màu sắc, nổi bật',
+          'Thích sưu tầm cúp lưu niệm, tranh ảnh và danh ngôn truyền cảm hứng'
+        ],
+        whatILikeEn: [
+          'To operate independently',
+          'To work as a colleague, not a subordinate',
+          'Reinforcement',
+          'Opportunities to try something new',
+          'To give input on goals',
+          'Challenges',
+          'Minimum paperwork'
+        ],
+        whatILikeVi: [
+          'Được hoạt động độc lập và tự do sáng tạo',
+          'Được làm việc như một cộng sự đồng đẳng, không phải cấp dưới bị kiểm soát',
+          'Sự công nhận và củng cố tinh thần thường xuyên',
+          'Cơ hội thử nghiệm những điều mới mẻ',
+          'Được đóng góp tiếng nói vào các mục tiêu lớn',
+          'Những thách thức thú vị, không nhàm chán',
+          'Hạn chế tối đa các thủ tục giấy tờ rườm rà'
+        ],
+        whatINeedEn: [
+          'Lots of work',
+          'Firm guidelines and standards',
+          'Critical input for evaluating new ideas',
+          'Help in being realistic about time and task',
+          'Praise and complements on my performance'
+        ],
+        whatINeedVi: [
+          'Nhiều công việc và dự án thú vị để giải phóng năng lượng',
+          'Quy chuẩn và tiêu chuẩn hành động vững chắc để không chệch hướng',
+          'Phản hồi mang tính phản biện để đánh giá các ý tưởng mới',
+          'Sự hỗ trợ để nhìn nhận thực tế hơn về thời gian và khối lượng việc',
+          'Lời khen ngợi và tán dương chân thành về sự thể hiện của mình'
+        ],
+        fromYourStyleEn: {
+          title: 'RESTRAIN and FACILITATE',
+          desc: 'Your quick, impulsive decisions and actions often based on hunches often causes stress. Your high energy, language capability and loud voice may intimidate others. RESTRAIN your impulsiveness. Check facts before making statements and before making decisions. Hold back some on your talking and comment making. When others speak, don’t interrupt or raise your voice and talk over them. Listen more. Relax your tendency to be on center stage.'
+        },
+        fromYourStyleVi: {
+          title: 'HÃY KIỀM CHẾ VÀ ĐIỀU PHỐI (RESTRAIN and FACILITATE)',
+          desc: 'Những quyết định chóng vánh, bốc đồng dựa trên linh cảm và năng lượng quá cao của bạn đôi khi khiến người khác bị ngợp hoặc cảm thấy bất an. Giọng nói lớn và sự áp đảo ngôn từ có thể vô tình lấn át người xung quanh. Hãy KIỀM CHẾ tính bốc đồng. Kiểm tra lại sự thật và số liệu trước khi phát biểu và trước khi ra quyết định. Nói ít lại một chút, khi người khác đang nói đừng ngắt lời hay nói đè lên họ. Lắng nghe nhiều hơn. Thả lỏng mong muốn luôn phải là tâm điểm của sân khấu.'
+        }
+      }
+    };
+
+    /* ==========================================================================
+       SECTION D: FLEXING TO OTHER STYLES (PAGE 8 OF PDF)
+       ========================================================================== */
+    const flexingGuides = {
+      ANALYTICS: {
+        titleEn: 'How to communicate & flex with Analytics',
+        titleVi: 'Cách giao tiếp và điều chỉnh khi làm việc với Analytics (Phân tích)',
+        pointsEn: [
+          'Give them facts, not inspiration',
+          'Don’t push them into reactive decisions; Let them consider consequences',
+          'When possible, give them more time',
+          'Seriously acknowledge their ideas',
+          'Encourage them to make a decision',
+          'Be on time',
+          'Avoid being loud and aggressive',
+          'Be prepared, systematic, factual, logical, precise',
+          'Give positive and negative points of view',
+          'Indicate the risk involved',
+          'Check to insure they understand what is said'
+        ],
+        pointsVi: [
+          'Cung cấp dữ liệu, số liệu thực tế chứ không chỉ truyền cảm hứng chung chung',
+          'Đừng ép họ ra quyết định tức thì; hãy để họ cân nhắc hậu quả',
+          'Khi có thể, hãy cho họ thêm thời gian để nghiên cứu',
+          'Công nhận nghiêm túc những ý tưởng sâu sắc của họ',
+          'Khích lệ họ đưa ra quyết định cuối cùng',
+          'Luôn đúng giờ và chuẩn bị kỹ lưỡng',
+          'Tránh nói quá to, ồn ào hoặc có thái độ hung hăng, áp đặt',
+          'Chuẩn bị có hệ thống, logic, chính xác và có bằng chứng',
+          'Trình bày cả mặt tích cực lẫn rủi ro tiềm ẩn của vấn đề',
+          'Chỉ rõ mức độ rủi ro liên quan và phương án dự phòng',
+          'Kiểm tra lại để đảm bảo họ đã hiểu rõ những gì được trao đổi'
+        ]
+      },
+
+      DRIVERS: {
+        titleEn: 'How to communicate & flex with Drivers',
+        titleVi: 'Cách giao tiếp và điều chỉnh khi làm việc với Drivers (Chỉ huy)',
+        pointsEn: [
+          'Give them less detail and more decisions',
+          'Tell them what is possible, not what isn’t',
+          'Give your conclusions and recommendations',
+          'Avoid being a "yes" person',
+          'Be factual and concise',
+          'Be on time',
+          'Do business quickly and efficiently, honoring time limits',
+          'Focus on results and stay on track',
+          'Provide limited options from which to choose',
+          'Provide clear positives and negatives on options',
+          'Don’t over explain or ramble',
+          'Use alert body language and direct eye contact',
+          'Leave quickly and graciously when the interaction is finished'
+        ],
+        pointsVi: [
+          'Đưa ít chi tiết thôi, hãy tập trung vào quyết định và phương án',
+          'Nói cho họ biết điều gì khả thi, đừng chỉ bàn điều bất khả thi',
+          'Đưa ra kết luận và đề xuất hành động cụ thể',
+          'Tránh việc cái gì cũng "vâng dạ" (tránh là "yes-person")',
+          'Bám sát sự thật và trình bày thật súc tích',
+          'Luôn đúng giờ và tôn trọng khung thời gian đã hẹn',
+          'Giải quyết công việc nhanh gọn, hiệu quả, tôn trọng giới hạn thời gian',
+          'Tập trung vào kết quả và giữ đúng định hướng cuộc họp',
+          'Chỉ cung cấp số lượng lựa chọn giới hạn để họ dễ quyết',
+          'Chỉ rõ ưu - nhược điểm của từng lựa chọn',
+          'Đừng giải thích dông dài hoặc lan man ngoài lề',
+          'Giao tiếp bằng ánh mắt trực diện và ngôn ngữ cơ thể tỉnh táo',
+          'Rời đi nhanh chóng và lịch sự khi cuộc trao đổi đã xong'
+        ]
+      },
+
+      AMIABLES: {
+        titleEn: 'How to communicate & flex with Amiables',
+        titleVi: 'Cách giao tiếp và điều chỉnh khi làm việc với Amiables (Hòa nhã)',
+        pointsEn: [
+          'Don’t provide too much detail',
+          'Slow down so they can take in what you’re saying',
+          'Ask for their opinions, feelings, ideas',
+          'Listen to them',
+          'Honestly state guarantees and risk',
+          'Be relaxed, slow-paced, comfortable',
+          'Speak softly, avoid harshness',
+          'Make personal contact',
+          'Be genuine',
+          'Hold back your judgments',
+          'Encourage expressions of doubts and fears',
+          'Don’t exert excessive pressure for a decision',
+          'Mutually agree on goals',
+          'Offer needed support and cooperation'
+        ],
+        pointsVi: [
+          'Đừng dồn quá nhiều chi tiết kỹ thuật phức tạp cùng lúc',
+          'Nói chậm lại để họ có thời gian tiếp thu và cảm nhận',
+          'Chủ động hỏi ý kiến, cảm xúc và góc nhìn của họ',
+          'Chân thành lắng nghe họ chia sẻ',
+          'Thành thật chia sẻ về sự đảm bảo an toàn và những rủi ro',
+          'Giữ phong thái thư thái, thoải mái, không vội vã',
+          'Nói năng nhẹ nhàng, tránh dùng từ ngữ gay gắt, thô thiển',
+          'Xây dựng mối liên kết cá nhân chân thành',
+          'Hãy sống thật và chân thật',
+          'Kiềm chế sự phán xét vội vàng',
+          'Khuyến khích họ bộc lộ những mối lo ngại hoặc sợ hãi',
+          'Đừng tạo áp lực quá mức để bắt họ quyết định ngay',
+          'Cùng nhau thống nhất mục tiêu chung',
+          'Cung cấp sự hỗ trợ và hợp tác cần thiết'
+        ]
+      },
+
+      EXPRESSIVES: {
+        titleEn: 'How to communicate & flex with Expressives',
+        titleVi: 'Cách giao tiếp và điều chỉnh khi làm việc với Expressives (Nhiệt huyết)',
+        pointsEn: [
+          'Be ready to get something going with them',
+          'Be open-minded about their ideas',
+          'Withhold judgments',
+          'Take time to notice them as people',
+          'Adapt to their need for socializing',
+          'Let them share their experiences, opinions and stories',
+          'Be appropriately open about yourself',
+          'Focus on the big picture first, then on action plans and necessary details',
+          'They enjoy a challenge. Avoid non-contributing arguments',
+          'Find structural ways to help them achieve their hoped-for future',
+          'Balance flow and keeping on track',
+          'Restate details and agreement',
+          'Establish follow-up for action plans'
+        ],
+        pointsVi: [
+          'Sẵn sàng khởi động và bắt tay vào việc hào hứng cùng họ',
+          'Cởi mở với những ý tưởng táo bạo của họ',
+          'Tạm gác lại sự phán xét khắt khe',
+          'Dành thời gian quan tâm đến con người của họ',
+          'Thích nghi với nhu cầu giao lưu, kết nối của họ',
+          'Để họ có không gian chia sẻ trải nghiệm, quan điểm và câu chuyện',
+          'Cởi mở một cách chừng mực về bản thân bạn',
+          'Tập trung vào bức tranh tổng thể trước, sau đó mới đến kế hoạch hành động',
+          'Họ thích thử thách - hãy tránh các cuộc tranh luận vụn vặt không đóng góp gì',
+          'Tìm kiếm phương pháp có cấu trúc để giúp họ đạt được tương lai kỳ vọng',
+          'Cân bằng giữa sự phóng khoáng và việc bám sát lộ trình',
+          'Nhắc lại chi tiết và thỏa thuận để tránh quên sót',
+          'Thiết lập cơ chế theo dõi cho các kế hoạch hành động cụ thể'
+        ]
+      }
+    };
+
+    /* ==========================================================================
+       SECTION E: HINTS FOR STYLE FLEXING (PAGE 9 OF PDF)
+       ========================================================================== */
+    const hintsForFlexing = {
+      increaseAssertiveness: {
+        titleEn: 'To increase Assertiveness (Tell more often • Ask less often)',
+        titleVi: 'Để TĂNG tính Quyết đoán (Nói thường xuyên hơn • Hỏi ít hơn)',
+        pointsEn: [
+          'Be direct and to the point',
+          'State ideas directly and frankly',
+          'Volunteer information',
+          'Give recommendations',
+          'Face conflict openly',
+          'Use positive voice and body language',
+          'Initiate conversation',
+          'Act on your convictions',
+          'Be willing to disagree'
+        ],
+        pointsVi: [
+          'Đi thẳng vào trọng tâm vấn đề, không vòng vo',
+          'Bày tỏ quan điểm trực tiếp và thẳng thắn',
+          'Chủ động chia sẻ thông tin',
+          'Đưa ra các khuyến nghị, đề xuất giải pháp',
+          'Dám đối diện với mâu thuẫn một cách công khai, văn minh',
+          'Sử dụng giọng nói chắc chắn và ngôn ngữ cơ thể tích cực',
+          'Chủ động bắt đầu cuộc trò chuyện',
+          'Hành động dựa trên niềm tin vững chắc của bản thân',
+          'Sẵn sàng bày tỏ sự không đồng thuận khi cần thiết'
+        ]
+      },
+
+      decreaseAssertiveness: {
+        titleEn: 'To decrease Assertiveness (Ask more often • Tell less often)',
+        titleVi: 'Để GIẢM tính Quyết đoán (Hỏi thường xuyên hơn • Nói ít hơn)',
+        pointsEn: [
+          'Involve others in conversation and decisions',
+          'Listen without interrupting',
+          'Adapt to time needs of others',
+          'Slow down speech and body movements',
+          'Allow others to assume leadership',
+          'Don’t invade another’s space',
+          'Lower intensity of your voice',
+          'Don’t intimidate or push'
+        ],
+        pointsVi: [
+          'Thu hút người khác tham gia vào cuộc đối thoại và quyết định',
+          'Lắng nghe trọn vẹn, không ngắt lời người khác',
+          'Thích nghi với nhu cầu thời gian của người khác',
+          'Nói chậm lại và tiết chế các chuyển động cơ thể',
+          'Tạo điều kiện để người khác đảm nhận vai trò dẫn dắt',
+          'Không xâm phạm không gian cá nhân của người khác',
+          'Hạ thấp cường độ và âm lượng giọng nói',
+          'Tránh đe dọa, tạo áp lực hoặc thúc ép người khác'
+        ]
+      },
+
+      increaseResponsiveness: {
+        titleEn: 'To increase Responsiveness (Be willing to open yourself to others • Exert control less often)',
+        titleVi: 'Để TĂNG tính Cởi mở Cảm xúc (Sẵn sàng mở lòng • Giảm bớt kiểm soát)',
+        pointsEn: [
+          'Express your own feelings',
+          'Be open to others showing their feelings',
+          'Pay personal compliments',
+          'Be willing to spend time on the relationship',
+          'Engage in informal talk, socialize',
+          'Use a light touch with friendly, non-verbal body language',
+          'Communicate informally',
+          'Consider people’s needs, not just task results'
+        ],
+        pointsVi: [
+          'Bộc lộ cảm xúc chân thực của bản thân',
+          'Cởi mở đón nhận khi người khác chia sẻ cảm xúc của họ',
+          'Dành lời khen ngợi mang tính cá nhân hóa',
+          'Sẵn lòng đầu tư thời gian xây dựng mối quan hệ',
+          'Tham gia trò chuyện phi chính thức, giao lưu kết nối',
+          'Dùng cử chỉ thân thiện, ngôn ngữ cơ thể ấm áp, gần gũi',
+          'Giao tiếp tự nhiên, không quá câu nệ thủ tục',
+          'Quan tâm đến nhu cầu của con người, không chỉ riêng kết quả công việc'
+        ]
+      },
+
+      decreaseResponsiveness: {
+        titleEn: 'To decrease Responsiveness (Exert control more often • Express emotion and feelings less often)',
+        titleVi: 'Để GIẢM bớt Cảm xúc / Tập trung Công việc (Kiểm soát nhiều hơn • Giảm biểu lộ cảm xúc)',
+        pointsEn: [
+          'Talk less',
+          'Work on a logical, factual basis',
+          'Restrain your enthusiasm',
+          'Reduce your body movement and gestures',
+          'Pay more attention to accuracy and detail',
+          'Pause and think a moment',
+          'Acknowledge the thoughts of others',
+          'Get to the task and stick to it'
+        ],
+        pointsVi: [
+          'Nói ít hơn, lắng nghe và quan sát nhiều hơn',
+          'Làm việc trên cơ sở số liệu thực tế và lập luận logic',
+          'Kiềm chế sự phấn khích hoặc hào hứng bộc phát',
+          'Giảm bớt các cử chỉ và chuyển động cơ thể kịch tính',
+          'Chú ý nhiều hơn đến tính chính xác và chi tiết kỹ thuật',
+          'Dành một vài giây dừng lại suy ngẫm trước khi phản hồi',
+          'Ghi nhận suy nghĩ và quan điểm của người khác',
+          'Đi ngay vào nhiệm vụ và kiên trì bám sát cho đến khi xong'
+        ]
+      }
+    };
+
+    /* ==========================================================================
+       SECTION F: BILINGUAL UI TRANSLATIONS DICTIONARY
+       ========================================================================== */
+    const UI_TRANSLATIONS = {
+      en: {
+        heroBadge: 'YUSEA • BEHAVIORAL INVENTORY',
+        heroTitle: 'Understand Your Natural Communication Style',
+        heroDesc: 'To help you become more aware of your own and other people’s natural behavior for more effective relationships.',
+        btnStart: 'Start Assessment →',
+        btnHow: 'How It Works',
+        cardAnaName: 'ANALYTICS',
+        cardAnaSub: 'Up • Left (Task & Ask)',
+        cardAnaDesc: 'Logical, thorough, serious, systematic, careful, and orderly. Emphasizes quality and facts.',
+        cardDrvName: 'DRIVERS',
+        cardDrvSub: 'Up • Right (Task & Tell)',
+        cardDrvDesc: 'Independent, direct, decisive, pragmatic, efficient, and determined. Moves quickly and achieves results.',
+        cardAmiName: 'AMIABLES',
+        cardAmiSub: 'Down • Left (People & Ask)',
+        cardAmiDesc: 'Supportive, cooperative, diplomatic, loyal, patient, and agreeable. Builds deep interpersonal trust.',
+        cardExpName: 'EXPRESSIVES',
+        cardExpSub: 'Down • Right (People & Tell)',
+        cardExpDesc: 'Out-going, enthusiastic, persuasive, fun-loving, spontaneous, and free-flowing. Inspires and leads.',
+        howBadge: 'ASSESSMENT PROCESS',
+        howTitle: 'How It Works',
+        howSub: 'Complete the self-reflection in 3 straightforward steps',
+        step1Num: 'STEP 01',
+        step1Title: 'Answer 18 Questions',
+        step1Desc: 'Choose the statement in each pair that most accurately describes how other people experience your natural behavior.',
+        step2Num: 'STEP 02',
+        step2Title: 'Get Your Style',
+        step2Desc: 'The system computes your Down/Up and Left/Right totals to calculate your Net Vertical and Net Horizontal scores on the Style Gram.',
+        step3Num: 'STEP 03',
+        step3Title: 'Learn to Flex',
+        step3Desc: 'Discover your behavioral archetype, likes & needs, and practical guidance on how to adjust (flex) when interacting with other styles.',
+        dirHeading: 'DIRECTIONS FROM STYLE FLEX INVENTORY',
+        dirBody: 'Below are 18 pairs of statements. Mark the one in each pair you think most accurately describes how other people experience you. There are no right or wrong answers. If you think neither answer is accurate, choose the one that most closely describes how you think other people experience you. Mark only 1 statement in each pair, but be sure to select 1 in every pair.',
+        qLabel: 'Question',
+        qPrompt: 'Which statement in this pair most accurately describes how other people experience you?',
+        btnPrev: 'Previous',
+        btnNext: 'Next',
+        btnFinish: 'See My Results →',
+        hintKeys: 'Press',
+        hintOr: 'or',
+        alertMsg: '⚠️ Please choose one of the two statements to proceed.',
+        lblDown: 'Down',
+        lblUp: 'Up',
+        lblLeft: 'Left',
+        lblRight: 'Right',
+        lblNetv: 'Net Vertical',
+        lblNeth: 'Net Horizontal',
+        subDown: 'Responsive / People',
+        subUp: 'Controlled / Task',
+        subLeft: 'Ask-oriented / Slower',
+        subRight: 'Tell-oriented / Faster',
+        gramTitle: 'The Style Gram',
+        gramSub: 'Your exact behavioral position based on Assertiveness (horizontal) and Responsiveness (vertical).',
+        tabProfile: 'Style Profile',
+        tabNeeds: 'Likes & Needs',
+        tabFrom: 'Flexing From Your Style',
+        tabTo: 'Flexing To Other Styles',
+        tabHints: 'Hints for Style Flexing',
+        tabAll: 'All 4 Archetypes',
+        boxTypicalTitle: '⭐ 6 Most Typical Behaviors',
+        boxCharTitle: '🔍 Characteristic Behaviors',
+        boxLikesTitle: '❤️ What I Most Like',
+        boxNeedsTitle: '🛡️ What I Most Need',
+        fromBadge: 'CORE GROWTH DIRECTIVE',
+        whyFlexTitle: '💡 Why Style Flexing Matters',
+        whyFlexDesc: 'Style Flexing is the ability to adjust your personal communication and behavioral style to match the comfort level and preferences of others. It does not mean changing who you are; it means expanding your range of behavior to eliminate stress, improve trust, and build more effective relationships.',
+        btnFlexAna: 'To Analytics',
+        btnFlexDrv: 'To Drivers',
+        btnFlexAmi: 'To Amiables',
+        btnFlexExp: 'To Expressives',
+        hintsAssertHead: 'Assertiveness Axis',
+        hintsRespHead: 'Responsiveness Axis',
+        hintsIncAssert: 'To increase Assertiveness',
+        hintsIncAssertSub: 'Tell more often • Ask less often',
+        hintsDecAssert: 'To decrease Assertiveness',
+        hintsDecAssertSub: 'Ask more often • Tell less often',
+        hintsIncResp: 'To increase Responsiveness',
+        hintsIncRespSub: 'Be willing to open yourself to others • Exert control less often',
+        hintsDecResp: 'To decrease Responsiveness',
+        hintsDecRespSub: 'Exert control more often • Express emotion and feelings less often',
+        matAnaTraits: 'Logical • Thorough • Serious • Systematic • Careful • Orderly',
+        matAnaDesc: 'Focuses on facts, details, and quality. Needs time to analyze and deliberate.',
+        matDrvTraits: 'Independent • Direct • Decisive • Pragmatic • Efficient • Determined',
+        matDrvDesc: 'Focuses on bottom-line results, speed, and pragmatic action. Prefers direct communication.',
+        matAmiTraits: 'Supportive • Cooperative • Diplomatic • Loyal • Patient • Agreeable',
+        matAmiDesc: 'Focuses on relationships, teamwork, and harmony. Avoids conflict and builds consensus.',
+        matExpTraits: 'Out-going • Enthusiastic • Persuasive • Fun-loving • Spontaneous • Free-flowing',
+        matExpDesc: 'Focuses on vision, excitement, big ideas, and inspiring people. Thrives in energetic environments.',
+        btnPrint: '🖨️ Print / Export PDF',
+        btnCopy: '📋 Copy Summary',
+        btnRetake: '🔄 Retake Assessment'
+      },
+      vi: {
+        heroBadge: 'YUSEA • BẢNG ĐÁNH GIÁ PHONG CÁCH HÀNH VI',
+        heroTitle: 'Thấu Hiểu Phong Cách Giao Tiếp Tự Nhiên Của Bạn',
+        heroDesc: 'Công cụ giúp bạn nhận thức rõ hơn về hành vi tự nhiên của chính mình và của người khác, từ đó xây dựng các mối quan hệ hiệu quả và bền vững hơn.',
+        btnStart: 'Bắt đầu làm bài test →',
+        btnHow: 'Cách hoạt động',
+        cardAnaName: 'ANALYTICS',
+        cardAnaSub: 'Up • Left (Kiểm soát & Thận trọng)',
+        cardAnaDesc: 'Logic, kỹ lưỡng, nghiêm túc, có hệ thống, cẩn trọng và ngăn nắp. Luôn coi trọng sự thật và chất lượng.',
+        cardDrvName: 'DRIVERS',
+        cardDrvSub: 'Up • Right (Kiểm soát & Quyết đoán)',
+        cardDrvDesc: 'Độc lập, trực diện, quyết đoán, thực tế, hiệu quả và kiên định. Hành động nhanh và hướng tới kết quả.',
+        cardAmiName: 'AMIABLES',
+        cardAmiSub: 'Down • Left (Cởi mở & Thận trọng)',
+        cardAmiDesc: 'Ủng hộ, hợp tác, ngoại giao, trung thành, kiên nhẫn và hòa đồng. Xây dựng sự tin cậy chân thành.',
+        cardExpName: 'EXPRESSIVES',
+        cardExpSub: 'Down • Right (Cởi mở & Quyết đoán)',
+        cardExpDesc: 'Hướng ngoại, nhiệt tình, có sức thuyết phục, vui vẻ, bộc phát và phóng khoáng. Truyền cảm hứng và dẫn dắt.',
+        howBadge: 'QUY TRÌNH ĐÁNH GIÁ',
+        howTitle: 'Quy trình hoạt động',
+        howSub: 'Hoàn thành bài tự đánh giá qua 3 bước đơn giản',
+        step1Num: 'BƯỚC 01',
+        step1Title: 'Trả lời 18 câu hỏi',
+        step1Desc: 'Chọn phát biểu trong mỗi cặp mô tả chính xác nhất cách người khác cảm nhận và trải nghiệm hành vi của bạn.',
+        step2Num: 'BƯỚC 02',
+        step2Title: 'Nhận diện phong cách',
+        step2Desc: 'Hệ thống tự động tính điểm Down/Up và Left/Right để xác định điểm Net Vertical và Net Horizontal trên Style Gram.',
+        step3Num: 'BƯỚC 03',
+        step3Title: 'Học cách thích ứng (Flex)',
+        step3Desc: 'Khám phá nhóm phong cách, nhu cầu thực tế và hướng dẫn chi tiết cách điều chỉnh giao tiếp với 3 nhóm còn lại.',
+        dirHeading: 'HƯỚNG DẪN TỪ TÀI LIỆU STYLE FLEX INVENTORY',
+        dirBody: 'Dưới đây là 18 cặp phát biểu. Hãy chọn phương án trong mỗi cặp mà bạn cảm thấy mô tả chính xác nhất cách người khác trải nghiệm hành vi của bạn. Không có câu trả lời đúng hay sai. Nếu bạn thấy cả hai đều chưa hoàn toàn đúng, hãy chọn phương án gần giống nhất. Chỉ chọn duy nhất 1 phương án cho mỗi câu và hãy làm đủ cả 18 câu.',
+        qLabel: 'Câu hỏi',
+        qPrompt: 'Phát biểu nào trong cặp sau đây mô tả chính xác nhất cách người khác trải nghiệm hành vi của bạn?',
+        btnPrev: 'Quay lại',
+        btnNext: 'Tiếp theo',
+        btnFinish: 'Xem Kết Quả Của Tôi →',
+        hintKeys: 'Nhấn',
+        hintOr: 'hoặc',
+        alertMsg: '⚠️ Vui lòng chọn một trong hai phương án để tiếp tục.',
+        lblDown: 'Down (Cảm xúc)',
+        lblUp: 'Up (Nhiệm vụ)',
+        lblLeft: 'Left (Thận trọng)',
+        lblRight: 'Right (Quả quyết)',
+        lblNetv: 'Net Vertical',
+        lblNeth: 'Net Horizontal',
+        subDown: 'Cởi mở / Hướng con người',
+        subUp: 'Kiểm soát / Hướng nhiệm vụ',
+        subLeft: 'Xu hướng hỏi / Thận trọng',
+        subRight: 'Xu hướng nói / Quyết đoán',
+        gramTitle: 'Biểu Đồ Tọa Độ Style Gram',
+        gramSub: 'Vị trí tọa độ hành vi của bạn dựa trên 2 trục: Quyết đoán (Assertiveness) và Cởi mở Cảm xúc (Responsiveness).',
+        tabProfile: 'Hồ sơ phong cách',
+        tabNeeds: 'Điều thích & Điều cần',
+        tabFrom: 'Tự điều chỉnh (Flexing From)',
+        tabTo: 'Tương tác nhóm khác (Flexing To)',
+        tabHints: 'Bí quyết chuyển trục (Hints)',
+        tabAll: 'Bản đồ 4 nhóm',
+        boxTypicalTitle: '⭐ 6 Hành vi tiêu biểu nhất',
+        boxCharTitle: '🔍 Danh sách hành vi đặc trưng',
+        boxLikesTitle: '❤️ Điều tôi thích nhất (What I Most Like)',
+        boxNeedsTitle: '🛡️ Điều tôi cần nhất (What I Most Need)',
+        fromBadge: 'CHỈ DẪN PHÁT TRIỂN CỐT LÕI',
+        whyFlexTitle: '💡 Ý nghĩa của việc Linh hoạt Điều chỉnh (Style Flexing)',
+        whyFlexDesc: 'Style Flexing là năng lực chủ động điều chỉnh phong cách giao tiếp và hành vi để phù hợp với sự thoải mái của người khác. Điều này không có nghĩa là bạn thay đổi bản chất, mà là mở rộng phạm vi ứng xử để giảm bớt ma sát, gia tăng niềm tin và xây dựng các mối quan hệ bền vững.',
+        btnFlexAna: 'Tương tác với Analytics',
+        btnFlexDrv: 'Tương tác với Drivers',
+        btnFlexAmi: 'Tương tác với Amiables',
+        btnFlexExp: 'Tương tác với Expressives',
+        hintsAssertHead: 'Trục Quyết đoán (Assertiveness)',
+        hintsRespHead: 'Trục Cởi mở Cảm xúc (Responsiveness)',
+        hintsIncAssert: 'Để TĂNG tính Quyết đoán',
+        hintsIncAssertSub: 'Nói nhiều hơn • Hỏi ít hơn',
+        hintsDecAssert: 'Để GIẢM tính Quyết đoán',
+        hintsDecAssertSub: 'Hỏi nhiều hơn • Nói ít hơn',
+        hintsIncResp: 'Để TĂNG tính Cởi mở Cảm xúc',
+        hintsIncRespSub: 'Mở lòng với người khác • Giảm bớt kiểm soát',
+        hintsDecResp: 'Để GIẢM bớt Cảm xúc / Tập trung Công việc',
+        hintsDecRespSub: 'Kiểm soát nhiều hơn • Giảm biểu lộ cảm xúc',
+        matAnaTraits: 'Logic • Kỹ lưỡng • Nghiêm túc • Hệ thống • Cẩn trọng • Ngăn nắp',
+        matAnaDesc: 'Tập trung vào dữ liệu thực tế, chi tiết và chất lượng. Cần thời gian suy xét kỹ.',
+        matDrvTraits: 'Độc lập • Trực diện • Quyết đoán • Thực tế • Hiệu quả • Kiên định',
+        matDrvDesc: 'Tập trung vào kết quả sau cùng, tốc độ và hành động thực tiễn. Thích sự ngắn gọn.',
+        matAmiTraits: 'Ủng hộ • Hợp tác • Ngoại giao • Trung thành • Kiên nhẫn • Hòa đồng',
+        matAmiDesc: 'Tập trung vào mối quan hệ, tinh thần đồng đội và sự hòa thuận. Tránh xung đột gay gắt.',
+        matExpTraits: 'Hướng ngoại • Nhiệt tình • Thuyết phục • Vui vẻ • Bộc phát • Phóng khoáng',
+        matExpDesc: 'Tập trung vào tầm nhìn, năng lượng, ý tưởng lớn và truyền cảm hứng cho mọi người.',
+        btnPrint: '🖨️ In / Xuất Báo Cáo PDF',
+        btnCopy: '📋 Sao chép tóm tắt kết quả',
+        btnRetake: '🔄 Làm lại bài trắc nghiệm'
+      }
+    };
+
+    /* ==========================================================================
+       SECTION G: APPLICATION STATE & CORE CONTROLLER
+       ========================================================================== */
+    let currentLang = 'vi'; // default language
+    let currentQuestionIndex = 0; // 0 to 17 (representing questions 1 to 18)
+    const userAnswers = {}; // { questionId: 'optionA' | 'optionB' }
+    let calculatedScores = null;
+    let selectedFlexTarget = 'ANALYTICS';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initApp();
+      setupKeyboardShortcuts();
+    });
+
+    /**
+     * Khởi tạo giao diện và các thành phần
+     */
+    function initApp() {
+      applyLanguage(currentLang);
+      renderJumpDots();
+    }
+
+    /**
+     * Chuyển đổi ngôn ngữ giao diện (Bilingual Switcher)
+     */
+    function setLanguage(lang) {
+      if (currentLang === lang) return;
+      currentLang = lang;
+
+      // Update active toggle button
+      document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-btn-vi').classList.toggle('active', lang === 'vi');
+
+      // Update static texts
+      applyLanguage(lang);
+
+      // Re-render current question if assessment is active
+      if (document.getElementById('assessment-section').style.display === 'block') {
+        renderQuestionCard(currentQuestionIndex);
+      }
+
+      // Re-render results if result view is active
+      if (document.getElementById('results-section').style.display === 'block' && calculatedScores) {
+        populateResults(calculatedScores.dominantStyle);
+        showFlexToTarget(selectedFlexTarget);
+      }
+    }
+
+    /**
+     * Áp dụng văn bản theo từ điển ngôn ngữ
+     */
+    function applyLanguage(lang) {
+      const t = UI_TRANSLATIONS[lang];
+
+      document.getElementById('t-hero-badge').textContent = t.heroBadge;
+      document.getElementById('t-hero-title').textContent = t.heroTitle;
+      document.getElementById('t-hero-desc').textContent = t.heroDesc;
+      document.getElementById('t-btn-start').innerHTML = `${t.btnStart}`;
+      document.getElementById('t-btn-how').textContent = t.btnHow;
+
+      document.getElementById('t-card-ana-name').textContent = t.cardAnaName;
+      document.getElementById('t-card-ana-sub').textContent = t.cardAnaSub;
+      document.getElementById('t-card-ana-desc').textContent = t.cardAnaDesc;
+
+      document.getElementById('t-card-drv-name').textContent = t.cardDrvName;
+      document.getElementById('t-card-drv-sub').textContent = t.cardDrvSub;
+      document.getElementById('t-card-drv-desc').textContent = t.cardDrvDesc;
+
+      document.getElementById('t-card-ami-name').textContent = t.cardAmiName;
+      document.getElementById('t-card-ami-sub').textContent = t.cardAmiSub;
+      document.getElementById('t-card-ami-desc').textContent = t.cardAmiDesc;
+
+      document.getElementById('t-card-exp-name').textContent = t.cardExpName;
+      document.getElementById('t-card-exp-sub').textContent = t.cardExpSub;
+      document.getElementById('t-card-exp-desc').textContent = t.cardExpDesc;
+
+      document.getElementById('t-how-badge').textContent = t.howBadge;
+      document.getElementById('t-how-title').textContent = t.howTitle;
+      document.getElementById('t-how-sub').textContent = t.howSub;
+
+      document.getElementById('t-step1-num').textContent = t.step1Num;
+      document.getElementById('t-step1-title').textContent = t.step1Title;
+      document.getElementById('t-step1-desc').textContent = t.step1Desc;
+
+      document.getElementById('t-step2-num').textContent = t.step2Num;
+      document.getElementById('t-step2-title').textContent = t.step2Title;
+      document.getElementById('t-step2-desc').textContent = t.step2Desc;
+
+      document.getElementById('t-step3-num').textContent = t.step3Num;
+      document.getElementById('t-step3-title').textContent = t.step3Title;
+      document.getElementById('t-step3-desc').textContent = t.step3Desc;
+
+      document.getElementById('t-dir-heading').textContent = t.dirHeading;
+      document.getElementById('t-dir-body').textContent = t.dirBody;
+
+      document.getElementById('t-q-label').textContent = t.qLabel;
+      document.getElementById('t-q-prompt').textContent = t.qPrompt;
+      document.getElementById('t-btn-prev').textContent = t.btnPrev;
+      document.getElementById('t-hint-keys').textContent = t.hintKeys;
+      document.getElementById('t-hint-or').textContent = t.hintOr;
+      document.getElementById('selection-alert-msg').textContent = t.alertMsg;
+
+      document.getElementById('t-lbl-down').textContent = t.lblDown;
+      document.getElementById('t-lbl-up').textContent = t.lblUp;
+      document.getElementById('t-lbl-left').textContent = t.lblLeft;
+      document.getElementById('t-lbl-right').textContent = t.lblRight;
+      document.getElementById('t-lbl-netv').textContent = t.lblNetv;
+      document.getElementById('t-lbl-neth').textContent = t.lblNeth;
+      document.getElementById('t-sub-down').textContent = t.subDown;
+      document.getElementById('t-sub-up').textContent = t.subUp;
+      document.getElementById('t-sub-left').textContent = t.subLeft;
+      document.getElementById('t-sub-right').textContent = t.subRight;
+
+      document.getElementById('t-gram-title').textContent = t.gramTitle;
+      document.getElementById('t-gram-sub').textContent = t.gramSub;
+
+      document.getElementById('t-tab-profile').textContent = t.tabProfile;
+      document.getElementById('t-tab-needs').textContent = t.tabNeeds;
+      document.getElementById('t-tab-from').textContent = t.tabFrom;
+      document.getElementById('t-tab-to').textContent = t.tabTo;
+      document.getElementById('t-tab-hints').textContent = t.tabHints;
+      document.getElementById('t-tab-all').textContent = t.tabAll;
+
+      document.getElementById('t-box-typical-title').textContent = t.boxTypicalTitle;
+      document.getElementById('t-box-char-title').textContent = t.boxCharTitle;
+      document.getElementById('t-box-likes-title').textContent = t.boxLikesTitle;
+      document.getElementById('t-box-needs-title').textContent = t.boxNeedsTitle;
+      document.getElementById('t-lbl-from-badge').textContent = t.fromBadge;
+      document.getElementById('t-box-why-flex-title').textContent = t.whyFlexTitle;
+      document.getElementById('t-box-why-flex-desc').textContent = t.whyFlexDesc;
+
+      document.getElementById('t-btn-flex-ana').textContent = t.btnFlexAna;
+      document.getElementById('t-btn-flex-drv').textContent = t.btnFlexDrv;
+      document.getElementById('t-btn-flex-ami').textContent = t.btnFlexAmi;
+      document.getElementById('t-btn-flex-exp').textContent = t.btnFlexExp;
+
+      document.getElementById('t-hints-assert-head').textContent = t.hintsAssertHead;
+      document.getElementById('t-hints-resp-head').textContent = t.hintsRespHead;
+      document.getElementById('t-hints-inc-assert').textContent = t.hintsIncAssert;
+      document.getElementById('t-hints-inc-assert-sub').textContent = t.hintsIncAssertSub;
+      document.getElementById('t-hints-dec-assert').textContent = t.hintsDecAssert;
+      document.getElementById('t-hints-dec-assert-sub').textContent = t.hintsDecAssertSub;
+      document.getElementById('t-hints-inc-resp').textContent = t.hintsIncResp;
+      document.getElementById('t-hints-inc-resp-sub').textContent = t.hintsIncRespSub;
+      document.getElementById('t-hints-dec-resp').textContent = t.hintsDecResp;
+      document.getElementById('t-hints-dec-resp-sub').textContent = t.hintsDecRespSub;
+
+      document.getElementById('t-mat-ana-traits').textContent = t.matAnaTraits;
+      document.getElementById('t-mat-ana-desc').textContent = t.matAnaDesc;
+      document.getElementById('t-mat-drv-traits').textContent = t.matDrvTraits;
+      document.getElementById('t-mat-drv-desc').textContent = t.matDrvDesc;
+      document.getElementById('t-mat-ami-traits').textContent = t.matAmiTraits;
+      document.getElementById('t-mat-ami-desc').textContent = t.matAmiDesc;
+      document.getElementById('t-mat-exp-traits').textContent = t.matExpTraits;
+      document.getElementById('t-mat-exp-desc').textContent = t.matExpDesc;
+
+      document.getElementById('t-btn-print').textContent = t.btnPrint;
+      document.getElementById('t-btn-copy').textContent = t.btnCopy;
+      document.getElementById('t-btn-retake').textContent = t.btnRetake;
+
+      // Populate Hints lists according to language
+      renderHintsLists(lang);
+    }
+
+    /**
+     * Render các danh sách trong tab Hints
+     */
+    function renderHintsLists(lang) {
+      const isVi = lang === 'vi';
+      const hints = hintsForFlexing;
+
+      populateBulletList('list-hints-inc-assert', isVi ? hints.increaseAssertiveness.pointsVi : hints.increaseAssertiveness.pointsEn);
+      populateBulletList('list-hints-dec-assert', isVi ? hints.decreaseAssertiveness.pointsVi : hints.decreaseAssertiveness.pointsEn);
+      populateBulletList('list-hints-inc-resp', isVi ? hints.increaseResponsiveness.pointsVi : hints.increaseResponsiveness.pointsEn);
+      populateBulletList('list-hints-dec-resp', isVi ? hints.decreaseResponsiveness.pointsVi : hints.decreaseResponsiveness.pointsEn);
+    }
+
+    function populateBulletList(elementId, items) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.innerHTML = '';
+      items.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        el.appendChild(li);
+      });
+    }
+
+    /**
+     * Điều hướng trang chủ
+     */
+    function goToHome() {
+      document.getElementById('assessment-section').style.display = 'none';
+      document.getElementById('results-section').style.display = 'none';
+      document.getElementById('home-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToHowItWorks() {
+      const el = document.getElementById('how-it-works-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /**
+     * Khởi động quá trình làm bài trắc nghiệm
+     */
+    function startAssessment() {
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('results-section').style.display = 'none';
+      document.getElementById('assessment-section').style.display = 'block';
+
+      renderQuestionCard(currentQuestionIndex);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /**
+     * Render thanh nhảy câu hỏi (Jump dots 1-18)
+     */
+    function renderJumpDots() {
+      const track = document.getElementById('jump-dots-track');
+      track.innerHTML = '';
+
+      for (let i = 0; i < 18; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'jump-dot';
+        btn.id = `jump-dot-${i + 1}`;
+        btn.textContent = (i + 1) < 10 ? `0${i + 1}` : `${i + 1}`;
+        btn.onclick = () => jumpToQuestion(i);
+        track.appendChild(btn);
+      }
+    }
+
+    /**
+     * Cập nhật trạng thái hiển thị của các jump dots
+     */
+    function updateJumpDotsState() {
+      for (let i = 0; i < 18; i++) {
+        const dot = document.getElementById(`jump-dot-${i + 1}`);
+        if (!dot) continue;
+
+        dot.classList.toggle('current', i === currentQuestionIndex);
+        dot.classList.toggle('answered', Boolean(userAnswers[i + 1]));
+      }
+    }
+
+    /**
+     * Nhảy đến câu hỏi cụ thể nếu hợp lệ
+     */
+    function jumpToQuestion(targetIndex) {
+      currentQuestionIndex = targetIndex;
+      renderQuestionCard(targetIndex);
+    }
+
+    /**
+     * Render câu hỏi hiện tại vào thẻ active card
+     */
+    function renderQuestionCard(index) {
+      const q = questions[index];
+      const qNum = index + 1;
+      const t = UI_TRANSLATIONS[currentLang];
+      const isVi = currentLang === 'vi';
+
+      // Update question counter & progress
+      document.getElementById('current-q-index-text').textContent = qNum < 10 ? `0${qNum}` : `${qNum}`;
+      document.getElementById('q-indicator-pill').textContent = isVi ? `Câu ${qNum} / 18` : `Step ${qNum} of 18`;
+
+      // Axis badge indicator
+      const isVertical = q.axis === 'vertical';
+      const axisName = isVertical
+        ? (isVi ? 'Trục Dọc Responsiveness (Down vs Up)' : 'Vertical Axis: Responsiveness (Down vs Up)')
+        : (isVi ? 'Trục Ngang Assertiveness (Left vs Right)' : 'Horizontal Axis: Assertiveness (Left vs Right)');
+      document.getElementById('q-axis-name').textContent = axisName;
+      document.getElementById('q-axis-dot').style.color = isVertical ? '#38bdf8' : '#818cf8';
+
+      // Update Options Content
+      const optATitle = isVi ? q.optionA.vi : q.optionA.en;
+      const optASub = isVi ? q.optionA.en : q.optionA.vi;
+      const optBTitle = isVi ? q.optionB.vi : q.optionB.en;
+      const optBSub = isVi ? q.optionB.en : q.optionB.vi;
+
+      document.getElementById('opt-a-text').textContent = optATitle;
+      document.getElementById('opt-a-sub').textContent = optASub;
+      document.getElementById('opt-b-text').textContent = optBTitle;
+      document.getElementById('opt-b-sub').textContent = optBSub;
+
+      // Update selected state
+      const selectedOption = userAnswers[qNum];
+      document.getElementById('option-a-card').classList.toggle('selected', selectedOption === 'optionA');
+      document.getElementById('option-b-card').classList.toggle('selected', selectedOption === 'optionB');
+
+      // Update Next / Prev buttons
+      const prevBtn = document.getElementById('btn-prev-question');
+      prevBtn.disabled = index === 0;
+
+      const nextBtnText = document.getElementById('t-btn-next');
+      if (index === 17) {
+        nextBtnText.textContent = t.btnFinish;
+        document.getElementById('btn-next-question').className = 'btn btn-primary';
+      } else {
+        nextBtnText.textContent = t.btnNext;
+        document.getElementById('btn-next-question').className = 'btn btn-primary';
+      }
+
+      // Hide validation alert
+      document.getElementById('selection-alert-msg').style.display = 'none';
+
+      // Update Progress Track
+      const answeredCount = Object.keys(userAnswers).length;
+      const percent = Math.round((answeredCount / 18) * 100);
+      document.getElementById('progress-percent-badge').textContent = isVi ? `Đã hoàn thành ${percent}%` : `${percent}% Completed`;
+      document.getElementById('progress-fill-bar').style.width = `${Math.max(5.5, percent)}%`;
+
+      updateJumpDotsState();
+    }
+
+    /**
+     * Xử lý khi người dùng chọn một phương án
+     */
+    function handleSelectOption(optionKey) {
+      const qNum = currentQuestionIndex + 1;
+      userAnswers[qNum] = optionKey;
+
+      // Update UI selection immediately
+      document.getElementById('option-a-card').classList.toggle('selected', optionKey === 'optionA');
+      document.getElementById('option-b-card').classList.toggle('selected', optionKey === 'optionB');
+      document.getElementById('selection-alert-msg').style.display = 'none';
+
+      updateJumpDotsState();
+
+      // Smooth auto-advance after brief delay for delightful feel
+      setTimeout(() => {
+        if (currentQuestionIndex < 17) {
+          goToNextQuestion();
+        } else {
+          // If at last question, update button state to indicate readiness
+          document.getElementById('btn-next-question').focus();
+        }
+      }, 260);
+    }
+
+    /**
+     * Chuyển sang câu hỏi kế tiếp
+     */
+    function goToNextQuestion() {
+      const qNum = currentQuestionIndex + 1;
+
+      // Validation requirement: must select option before moving forward
+      if (!userAnswers[qNum]) {
+        const alertEl = document.getElementById('selection-alert-msg');
+        alertEl.style.display = 'block';
+        return;
+      }
+
+      if (currentQuestionIndex < 17) {
+        currentQuestionIndex++;
+        renderQuestionCard(currentQuestionIndex);
+      } else {
+        // Câu cuối cùng -> Chấm điểm và hiển thị kết quả
+        processAssessmentResults();
+      }
+    }
+
+    /**
+     * Quay lại câu hỏi trước đó (không làm mất câu trả lời)
+     */
+    function goToPreviousQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestionCard(currentQuestionIndex);
+      }
+    }
+
+    /**
+     * Thiết lập phím tắt bàn phím (1/2, Left/Right arrow)
+     */
+    function setupKeyboardShortcuts() {
+      document.addEventListener('keydown', (e) => {
+        // Chỉ nhận diện phím tắt khi đang ở màn hình assessment
+        if (document.getElementById('assessment-section').style.display !== 'block') return;
+
+        if (e.key === '1') {
+          handleSelectOption('optionA');
+        } else if (e.key === '2') {
+          handleSelectOption('optionB');
+        } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+          goToNextQuestion();
+        } else if (e.key === 'ArrowLeft') {
+          goToPreviousQuestion();
+        }
+      });
+    }
+
+    /* ==========================================================================
+       SECTION H: SCORING ENGINE (DOWN, UP, LEFT, RIGHT, NET VERTICAL, NET HORIZONTAL)
+       ========================================================================== */
+    function processAssessmentResults() {
+      // Xác minh xem đã đủ 18 câu chưa
+      const answeredKeys = Object.keys(userAnswers);
+      if (answeredKeys.length < 18) {
+        for (let i = 1; i <= 18; i++) {
+          if (!userAnswers[i]) {
+            currentQuestionIndex = i - 1;
+            renderQuestionCard(currentQuestionIndex);
+            document.getElementById('selection-alert-msg').style.display = 'block';
+            return;
+          }
+        }
+      }
+
+      // Khởi tạo bộ đếm 4 cột
+      let down = 0;
+      let up = 0;
+      let left = 0;
+      let right = 0;
+
+      for (let i = 1; i <= 18; i++) {
+        const chosen = userAnswers[i]; // 'optionA' | 'optionB'
+        const map = scoringMap[i][chosen];
+
+        if (map.col === 'down') down++;
+        else if (map.col === 'up') up++;
+        else if (map.col === 'left') left++;
+        else if (map.col === 'right') right++;
+      }
+
+      // Net Vertical & Net Horizontal theo tài liệu:
+      // Down + Up = 9 (Odd questions)
+      // Left + Right = 9 (Even questions)
+      // Net Vertical Score = Up - Down (Up: Task / Less Responsive, Down: People / Responsive)
+      // Net Horizontal Score = Right - Left (Right: Tell / Assertive, Left: Ask / Less Assertive)
+      const netVertical = up - down;
+      const netHorizontal = right - left;
+
+      // Xác định 4 Quadrants:
+      // Up > Down (netVertical > 0) & Left > Right (netHorizontal < 0) => ANALYTIC
+      // Up > Down (netVertical > 0) & Right > Left (netHorizontal > 0) => DRIVER
+      // Down > Up (netVertical < 0) & Left > Right (netHorizontal < 0) => AMIABLE
+      // Down > Up (netVertical < 0) & Right > Left (netHorizontal > 0) => EXPRESSIVE
+      let dominantStyle = 'ANALYTIC';
+      if (netVertical > 0 && netHorizontal < 0) dominantStyle = 'ANALYTIC';
+      else if (netVertical > 0 && netHorizontal > 0) dominantStyle = 'DRIVER';
+      else if (netVertical < 0 && netHorizontal < 0) dominantStyle = 'AMIABLE';
+      else if (netVertical < 0 && netHorizontal > 0) dominantStyle = 'EXPRESSIVE';
+
+      calculatedScores = {
+        down,
+        up,
+        left,
+        right,
+        netVertical,
+        netHorizontal,
+        dominantStyle
+      };
+
+      // Ẩn assessment, hiển thị kết quả
+      document.getElementById('assessment-section').style.display = 'none';
+      document.getElementById('results-section').style.display = 'block';
+
+      populateResults(dominantStyle);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /**
+     * Điền toàn bộ dữ liệu kết quả phân tích
+     */
+    function populateResults(styleKey) {
+      const isVi = currentLang === 'vi';
+      const scores = calculatedScores;
+      const profile = styleProfiles[styleKey];
+
+      // 1. Cập nhật thẻ chỉ số điểm
+      document.getElementById('val-score-down').textContent = scores.down;
+      document.getElementById('val-score-up').textContent = scores.up;
+      document.getElementById('val-score-left').textContent = scores.left;
+      document.getElementById('val-score-right').textContent = scores.right;
+
+      const formatSign = (val) => (val > 0 ? `+${val}` : `${val}`);
+      document.getElementById('val-score-netv').textContent = formatSign(scores.netVertical);
+      document.getElementById('val-score-neth').textContent = formatSign(scores.netHorizontal);
+
+      document.getElementById('val-netv-dir').textContent = scores.netVertical > 0
+        ? (isVi ? 'Nghiêng về UP (Kiểm soát / Task)' : 'Leaning UP (Controlled / Task)')
+        : (isVi ? 'Nghiêng về DOWN (Cởi mở / People)' : 'Leaning DOWN (Responsive / People)');
+
+      document.getElementById('val-neth-dir').textContent = scores.netHorizontal > 0
+        ? (isVi ? 'Nghiêng về RIGHT (Nói / Quyết đoán)' : 'Leaning RIGHT (Tell / Assertive)')
+        : (isVi ? 'Nghiêng về LEFT (Hỏi / Thận trọng)' : 'Leaning LEFT (Ask / Less Assertive)');
+
+      // 2. Banner chính
+      const banner = document.getElementById('result-hero-banner');
+      banner.className = `results-hero-card style-${profile.code}`;
+
+      document.getElementById('result-style-icon').textContent = profile.icon;
+      document.getElementById('result-style-name').textContent = isVi ? profile.nameVi : profile.nameEn;
+
+      const badgeEl = document.getElementById('result-style-badge');
+      badgeEl.style.color = profile.themeColor;
+      badgeEl.style.borderColor = profile.themeColor;
+      badgeEl.style.background = `${profile.themeColor}1a`;
+
+      document.getElementById('result-headline-text').textContent = isVi
+        ? `Phong cách của bạn: ${profile.nameVi}`
+        : `Your Primary Style: ${profile.nameEn}`;
+
+      document.getElementById('result-motto-text').textContent = isVi ? profile.mottoVi : profile.mottoEn;
+
+      // 6 nét tiêu biểu nhất
+      const typicalTraitsContainer = document.getElementById('result-typical-traits-row');
+      typicalTraitsContainer.innerHTML = '';
+      const typicalArray = isVi ? profile.typicalBehaviorsVi : profile.typicalBehaviorsEn;
+      typicalArray.forEach(trait => {
+        const tag = document.createElement('span');
+        tag.className = 'trait-tag';
+        tag.textContent = trait;
+        typicalTraitsContainer.appendChild(tag);
+      });
+
+      // 3. Tọa độ điểm trên SVG Style Gram
+      plotStyleGram(scores.netHorizontal, scores.netVertical, styleKey);
+
+      // 4. Tab 1: Profile lists
+      populateBulletList('list-tab-typical', typicalArray);
+      populateBulletList('list-tab-characteristic', isVi ? profile.characteristicBehaviorsVi : profile.characteristicBehaviorsEn);
+
+      // 5. Tab 2: Likes & Needs
+      populateBulletList('list-tab-likes', isVi ? profile.whatILikeVi : profile.whatILikeEn);
+      populateBulletList('list-tab-needs', isVi ? profile.whatINeedVi : profile.whatINeedEn);
+
+      // 6. Tab 3: Flexing From Your Style (Page 10)
+      const selfFlexObj = isVi ? profile.fromYourStyleVi : profile.fromYourStyleEn;
+      document.getElementById('from-style-title').textContent = selfFlexObj.title;
+      document.getElementById('from-style-desc').textContent = selfFlexObj.desc;
+
+      // 7. Tab 4: Flexing To Other Styles (Page 8)
+      showFlexToTarget(selectedFlexTarget);
+    }
+
+    /**
+     * Vẽ điểm tọa độ người dùng trên biểu đồ Style Gram SVG
+     */
+    function plotStyleGram(netH, netV, dominantKey) {
+      // Tâm giao điểm (0, 0) tại (270, 270)
+      // Tọa độ trục từ -9 đến +9: bán kính 225px => 25px mỗi đơn vị điểm
+      const centerX = 270;
+      const centerY = 270;
+      const scale = 225 / 9;
+
+      // netH > 0: Sang phải (+Right); netH < 0: Sang trái (-Left)
+      const targetX = centerX + (netH * scale);
+
+      // netV > 0: Lên trên (+Up); netV < 0: Xuống dưới (-Down)
+      const targetY = centerY - (netV * scale);
+
+      const marker = document.getElementById('user-plot-marker');
+      marker.setAttribute('transform', `translate(${targetX}, ${targetY})`);
+
+      const coordBubble = document.getElementById('svg-user-coords-text');
+      coordBubble.textContent = `H: ${netH > 0 ? '+' + netH : netH}, V: ${netV > 0 ? '+' + netV : netV}`;
+
+      // Highlight góc phần tư của người dùng
+      const quadAna = document.getElementById('quad-analytic');
+      const quadDrv = document.getElementById('quad-driver');
+      const quadAmi = document.getElementById('quad-amiable');
+      const quadExp = document.getElementById('quad-expressive');
+
+      quadAna.setAttribute('fill', 'rgba(14, 165, 233, 0.08)');
+      quadDrv.setAttribute('fill', 'rgba(239, 68, 68, 0.08)');
+      quadAmi.setAttribute('fill', 'rgba(16, 185, 129, 0.08)');
+      quadExp.setAttribute('fill', 'rgba(245, 158, 11, 0.08)');
+
+      if (dominantKey === 'ANALYTIC') quadAna.setAttribute('fill', 'rgba(14, 165, 233, 0.3)');
+      else if (dominantKey === 'DRIVER') quadDrv.setAttribute('fill', 'rgba(239, 68, 68, 0.3)');
+      else if (dominantKey === 'AMIABLE') quadAmi.setAttribute('fill', 'rgba(16, 185, 129, 0.3)');
+      else if (dominantKey === 'EXPRESSIVE') quadExp.setAttribute('fill', 'rgba(245, 158, 11, 0.3)');
+    }
+
+    /**
+     * Chuyển tab trong khu vực phân tích kết quả
+     */
+    function switchResultTab(tabId) {
+      document.querySelectorAll('.tab-nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      const activeBtn = Array.from(document.querySelectorAll('.tab-nav-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.add('active');
+    }
+
+    /**
+     * Hiển thị hướng dẫn giao tiếp với phong cách mục tiêu (Tab 4)
+     */
+    function showFlexToTarget(targetKey) {
+      selectedFlexTarget = targetKey;
+      const isVi = currentLang === 'vi';
+      const guide = flexingGuides[targetKey];
+
+      // Update button active state
+      document.querySelectorAll('.flex-style-btn').forEach(b => b.classList.remove('active'));
+      const activeClass = `to-${targetKey.toLowerCase().slice(0, -1)}`;
+      const activeBtn = Array.from(document.querySelectorAll('.flex-style-btn')).find(b => b.className.includes(activeClass));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      document.getElementById('flex-to-target-title').textContent = isVi ? guide.titleVi : guide.titleEn;
+      populateBulletList('list-flex-to-target', isVi ? guide.pointsVi : guide.pointsEn);
+    }
+
+    /**
+     * Sao chép tóm tắt kết quả vào clipboard
+     */
+    function copyResultsSummary() {
+      if (!calculatedScores) return;
+      const isVi = currentLang === 'vi';
+      const style = styleProfiles[calculatedScores.dominantStyle];
+      const s = calculatedScores;
+
+      const summary = isVi ?
+`🎯 KẾT QUẢ STYLE FLEX INVENTORY
+---------------------------------------------
+• Phong cách chủ đạo: ${style.nameVi}
+• Châm ngôn: ${style.mottoVi}
+• Điểm số:
+  - Down (Cảm xúc): ${s.down} | Up (Nhiệm vụ): ${s.up}
+  - Left (Thận trọng): ${s.left} | Right (Quả quyết): ${s.right}
+  - Net Vertical Score (Up - Down): ${s.netVertical > 0 ? '+' + s.netVertical : s.netVertical}
+  - Net Horizontal Score (Right - Left): ${s.netHorizontal > 0 ? '+' + s.netHorizontal : s.netHorizontal}
+• Lời khuyên tự điều chỉnh (Page 10):
+  ${style.fromYourStyleVi.title}: ${style.fromYourStyleVi.desc}
+---------------------------------------------
+YUSEA Style Flex Inventory Tool`
+      :
+`🎯 STYLE FLEX INVENTORY RESULTS
+---------------------------------------------
+• Primary Style: ${style.nameEn}
+• Motto: ${style.mottoEn}
+• Scores:
+  - Down: ${s.down} | Up: ${s.up}
+  - Left: ${s.left} | Right: ${s.right}
+  - Net Vertical Score: ${s.netVertical > 0 ? '+' + s.netVertical : s.netVertical}
+  - Net Horizontal Score: ${s.netHorizontal > 0 ? '+' + s.netHorizontal : s.netHorizontal}
+• Flexing From Your Style (Page 10):
+  ${style.fromYourStyleEn.title}: ${style.fromYourStyleEn.desc}
+---------------------------------------------
+YUSEA Style Flex Inventory Tool`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summary).then(() => showToast(isVi ? '✅ Đã sao chép tóm tắt kết quả!' : '✅ Results summary copied!'));
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = summary;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(isVi ? '✅ Đã sao chép tóm tắt kết quả!' : '✅ Results summary copied!');
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
+    /**
+     * Làm lại bài trắc nghiệm từ đầu (Retake Assessment)
+     */
+    function restartAssessment() {
+      const isVi = currentLang === 'vi';
+      const confirmText = isVi
+        ? 'Bạn có chắc chắn muốn làm lại bài trắc nghiệm từ đầu? Toàn bộ lựa chọn hiện tại sẽ được đặt lại.'
+        : 'Are you sure you want to retake the assessment from the beginning? Current answers will be reset.';
+
+      if (confirm(confirmText)) {
+        // Reset state
+        for (let key in userAnswers) delete userAnswers[key];
+        calculatedScores = null;
+        currentQuestionIndex = 0;
+
+        // Reset UI
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('home-view').style.display = 'none';
+        document.getElementById('assessment-section').style.display = 'block';
+
+        renderQuestionCard(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
